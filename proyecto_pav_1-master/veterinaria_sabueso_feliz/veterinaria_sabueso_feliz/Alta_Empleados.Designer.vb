@@ -33,11 +33,6 @@ Partial Class frm_alta_empleados
         Me.dtp_fecha_nac = New System.Windows.Forms.DateTimePicker()
         Me.txt_apellido = New System.Windows.Forms.TextBox()
         Me.txt_nombre = New System.Windows.Forms.TextBox()
-        Me.pnl_sucursal = New System.Windows.Forms.Panel()
-        Me.cmb_puesto = New System.Windows.Forms.ComboBox()
-        Me.msk_sucursal = New System.Windows.Forms.MaskedTextBox()
-        Me.lbl_puesto = New System.Windows.Forms.Label()
-        Me.lbl_sucursal = New System.Windows.Forms.Label()
         Me.rdo_no = New System.Windows.Forms.RadioButton()
         Me.rdo_si = New System.Windows.Forms.RadioButton()
         Me.lbl_recibido = New System.Windows.Forms.Label()
@@ -51,8 +46,8 @@ Partial Class frm_alta_empleados
         Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.btn_buscar = New System.Windows.Forms.Button()
         Me.btn_salir = New System.Windows.Forms.Button()
+        Me.lbl_sucursal = New System.Windows.Forms.Label()
         Me.pnl_datos_personales.SuspendLayout()
-        Me.pnl_sucursal.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnl_datos_personales
@@ -67,7 +62,6 @@ Partial Class frm_alta_empleados
         Me.pnl_datos_personales.Controls.Add(Me.dtp_fecha_nac)
         Me.pnl_datos_personales.Controls.Add(Me.txt_apellido)
         Me.pnl_datos_personales.Controls.Add(Me.txt_nombre)
-        Me.pnl_datos_personales.Controls.Add(Me.pnl_sucursal)
         Me.pnl_datos_personales.Controls.Add(Me.rdo_no)
         Me.pnl_datos_personales.Controls.Add(Me.rdo_si)
         Me.pnl_datos_personales.Controls.Add(Me.lbl_recibido)
@@ -77,9 +71,9 @@ Partial Class frm_alta_empleados
         Me.pnl_datos_personales.Controls.Add(Me.lbl_apellido)
         Me.pnl_datos_personales.Controls.Add(Me.lbl_nombre)
         Me.pnl_datos_personales.Enabled = False
-        Me.pnl_datos_personales.Location = New System.Drawing.Point(12, 12)
+        Me.pnl_datos_personales.Location = New System.Drawing.Point(12, 35)
         Me.pnl_datos_personales.Name = "pnl_datos_personales"
-        Me.pnl_datos_personales.Size = New System.Drawing.Size(709, 408)
+        Me.pnl_datos_personales.Size = New System.Drawing.Size(709, 333)
         Me.pnl_datos_personales.TabIndex = 0
         '
         'msk_documento
@@ -146,6 +140,7 @@ Partial Class frm_alta_empleados
         'txt_apellido
         '
         Me.txt_apellido.Location = New System.Drawing.Point(131, 60)
+        Me.txt_apellido.MaxLength = 50
         Me.txt_apellido.Name = "txt_apellido"
         Me.txt_apellido.Size = New System.Drawing.Size(465, 20)
         Me.txt_apellido.TabIndex = 2
@@ -153,57 +148,10 @@ Partial Class frm_alta_empleados
         'txt_nombre
         '
         Me.txt_nombre.Location = New System.Drawing.Point(131, 15)
+        Me.txt_nombre.MaxLength = 50
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(465, 20)
         Me.txt_nombre.TabIndex = 1
-        '
-        'pnl_sucursal
-        '
-        Me.pnl_sucursal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pnl_sucursal.Controls.Add(Me.cmb_puesto)
-        Me.pnl_sucursal.Controls.Add(Me.msk_sucursal)
-        Me.pnl_sucursal.Controls.Add(Me.lbl_puesto)
-        Me.pnl_sucursal.Controls.Add(Me.lbl_sucursal)
-        Me.pnl_sucursal.Location = New System.Drawing.Point(3, 306)
-        Me.pnl_sucursal.Name = "pnl_sucursal"
-        Me.pnl_sucursal.Size = New System.Drawing.Size(699, 95)
-        Me.pnl_sucursal.TabIndex = 9
-        '
-        'cmb_puesto
-        '
-        Me.cmb_puesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmb_puesto.FormattingEnabled = True
-        Me.cmb_puesto.Items.AddRange(New Object() {"EMPLEADO", "SUPERVISOR", "SUPERVISOR SUPLENTE"})
-        Me.cmb_puesto.Location = New System.Drawing.Point(316, 39)
-        Me.cmb_puesto.Name = "cmb_puesto"
-        Me.cmb_puesto.Size = New System.Drawing.Size(121, 21)
-        Me.cmb_puesto.TabIndex = 11
-        '
-        'msk_sucursal
-        '
-        Me.msk_sucursal.Location = New System.Drawing.Point(126, 39)
-        Me.msk_sucursal.Mask = "99"
-        Me.msk_sucursal.Name = "msk_sucursal"
-        Me.msk_sucursal.Size = New System.Drawing.Size(23, 20)
-        Me.msk_sucursal.TabIndex = 10
-        '
-        'lbl_puesto
-        '
-        Me.lbl_puesto.AutoSize = True
-        Me.lbl_puesto.Location = New System.Drawing.Point(270, 42)
-        Me.lbl_puesto.Name = "lbl_puesto"
-        Me.lbl_puesto.Size = New System.Drawing.Size(40, 13)
-        Me.lbl_puesto.TabIndex = 9
-        Me.lbl_puesto.Text = "Puesto"
-        '
-        'lbl_sucursal
-        '
-        Me.lbl_sucursal.AutoSize = True
-        Me.lbl_sucursal.Location = New System.Drawing.Point(71, 42)
-        Me.lbl_sucursal.Name = "lbl_sucursal"
-        Me.lbl_sucursal.Size = New System.Drawing.Size(48, 13)
-        Me.lbl_sucursal.TabIndex = 8
-        Me.lbl_sucursal.Text = "Sucursal"
         '
         'rdo_no
         '
@@ -286,7 +234,7 @@ Partial Class frm_alta_empleados
         Me.btn_nuevo.BackColor = System.Drawing.Color.PaleGreen
         Me.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_nuevo.Image = CType(resources.GetObject("btn_nuevo.Image"), System.Drawing.Image)
-        Me.btn_nuevo.Location = New System.Drawing.Point(17, 426)
+        Me.btn_nuevo.Location = New System.Drawing.Point(17, 397)
         Me.btn_nuevo.Name = "btn_nuevo"
         Me.btn_nuevo.Size = New System.Drawing.Size(45, 37)
         Me.btn_nuevo.TabIndex = 12
@@ -297,7 +245,7 @@ Partial Class frm_alta_empleados
         Me.btn_guardar.Enabled = False
         Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_guardar.Image = CType(resources.GetObject("btn_guardar.Image"), System.Drawing.Image)
-        Me.btn_guardar.Location = New System.Drawing.Point(68, 426)
+        Me.btn_guardar.Location = New System.Drawing.Point(68, 397)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(45, 37)
         Me.btn_guardar.TabIndex = 13
@@ -308,7 +256,7 @@ Partial Class frm_alta_empleados
         Me.btn_cancelar.Enabled = False
         Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_cancelar.Image = CType(resources.GetObject("btn_cancelar.Image"), System.Drawing.Image)
-        Me.btn_cancelar.Location = New System.Drawing.Point(119, 426)
+        Me.btn_cancelar.Location = New System.Drawing.Point(119, 397)
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(45, 37)
         Me.btn_cancelar.TabIndex = 14
@@ -318,7 +266,7 @@ Partial Class frm_alta_empleados
         '
         Me.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_buscar.Image = CType(resources.GetObject("btn_buscar.Image"), System.Drawing.Image)
-        Me.btn_buscar.Location = New System.Drawing.Point(170, 426)
+        Me.btn_buscar.Location = New System.Drawing.Point(170, 397)
         Me.btn_buscar.Name = "btn_buscar"
         Me.btn_buscar.Size = New System.Drawing.Size(45, 37)
         Me.btn_buscar.TabIndex = 15
@@ -328,19 +276,28 @@ Partial Class frm_alta_empleados
         '
         Me.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_salir.Image = CType(resources.GetObject("btn_salir.Image"), System.Drawing.Image)
-        Me.btn_salir.Location = New System.Drawing.Point(671, 426)
+        Me.btn_salir.Location = New System.Drawing.Point(676, 397)
         Me.btn_salir.Name = "btn_salir"
         Me.btn_salir.Size = New System.Drawing.Size(45, 37)
         Me.btn_salir.TabIndex = 16
         Me.btn_salir.UseVisualStyleBackColor = True
+        '
+        'lbl_sucursal
+        '
+        Me.lbl_sucursal.Location = New System.Drawing.Point(14, 9)
+        Me.lbl_sucursal.Name = "lbl_sucursal"
+        Me.lbl_sucursal.Size = New System.Drawing.Size(65, 23)
+        Me.lbl_sucursal.TabIndex = 17
+        Me.lbl_sucursal.Text = "SUC XXX"
         '
         'frm_alta_empleados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BackColor = System.Drawing.Color.LightGreen
-        Me.ClientSize = New System.Drawing.Size(733, 469)
+        Me.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.ClientSize = New System.Drawing.Size(733, 440)
+        Me.Controls.Add(Me.lbl_sucursal)
         Me.Controls.Add(Me.btn_salir)
         Me.Controls.Add(Me.btn_buscar)
         Me.Controls.Add(Me.btn_cancelar)
@@ -355,8 +312,6 @@ Partial Class frm_alta_empleados
         Me.Text = "Alta de Empleados"
         Me.pnl_datos_personales.ResumeLayout(False)
         Me.pnl_datos_personales.PerformLayout()
-        Me.pnl_sucursal.ResumeLayout(False)
-        Me.pnl_sucursal.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -370,11 +325,6 @@ Partial Class frm_alta_empleados
     Friend WithEvents dtp_fecha_nac As System.Windows.Forms.DateTimePicker
     Friend WithEvents txt_apellido As System.Windows.Forms.TextBox
     Friend WithEvents txt_nombre As System.Windows.Forms.TextBox
-    Friend WithEvents pnl_sucursal As System.Windows.Forms.Panel
-    Friend WithEvents cmb_puesto As System.Windows.Forms.ComboBox
-    Friend WithEvents msk_sucursal As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents lbl_puesto As System.Windows.Forms.Label
-    Friend WithEvents lbl_sucursal As System.Windows.Forms.Label
     Friend WithEvents rdo_no As System.Windows.Forms.RadioButton
     Friend WithEvents rdo_si As System.Windows.Forms.RadioButton
     Friend WithEvents lbl_recibido As System.Windows.Forms.Label
@@ -388,5 +338,6 @@ Partial Class frm_alta_empleados
     Friend WithEvents btn_cancelar As System.Windows.Forms.Button
     Friend WithEvents btn_buscar As System.Windows.Forms.Button
     Friend WithEvents btn_salir As System.Windows.Forms.Button
+    Friend WithEvents lbl_sucursal As System.Windows.Forms.Label
 
 End Class

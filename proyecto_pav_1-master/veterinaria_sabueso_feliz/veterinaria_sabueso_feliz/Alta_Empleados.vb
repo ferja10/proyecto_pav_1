@@ -11,11 +11,10 @@
         txt_apellido.Text = ""
         cmb_tipo_documento.SelectedIndex = -1
         msk_documento.Text = ""
-        dtp_fecha_nac.MaxDate = Date.Today
         dtp_fecha_ingreso.MaxDate = Date.Today
+        dtp_fecha_nac.MaxDate = Convert.ToDateTime(Date.Today.Day & "/" & Date.Today.Month & "/" & (Date.Today.Year - 18))
         msk_matricula.Text = ""
-        msk_sucursal.Text = ""
-        cmb_puesto.SelectedIndex = -1
+
     End Sub
 
     Private Sub habilitar()
@@ -41,7 +40,7 @@
         msk_matricula.Enabled = True
     End Sub
 
-    
+
     Private Sub rdo_no_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rdo_no.Click
         msk_matricula.Enabled = False
     End Sub
@@ -58,4 +57,22 @@
             e.Cancel = True
         End If
     End Sub
+
+    Private Sub frm_alta_empleados_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        carga_combo(cmb_tipo_documento, leo_tabla("TIPO_DOCUMENTO"), "id_tipo_doc", "descripcion")
+    End Sub
+
+    Private Sub carga_combo(ByVal combo As ComboBox, ByVal tabla As Data.DataTable, ByVal pk As String, ByVal descripcion As String)
+        combo.DataSource = tabla
+        combo.DisplayMember = descripcion
+        combo.ValueMember = pk
+    End Sub
+
+    Private Sub btn_guardar_Click(sender As System.Object, e As System.EventArgs) Handles btn_guardar.Click
+
+
+
+    End Sub
+
+
 End Class
