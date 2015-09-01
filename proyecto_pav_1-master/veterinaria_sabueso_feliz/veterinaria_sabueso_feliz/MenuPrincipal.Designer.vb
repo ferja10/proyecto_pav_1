@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class MenuPrincipal
+Partial Class frm_menu_principal
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,7 +22,7 @@ Partial Class MenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MenuPrincipal))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_menu_principal))
         Me.mst_menu_principal = New System.Windows.Forms.MenuStrip()
         Me.mts_paciente = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsi_nuevo = New System.Windows.Forms.ToolStripMenuItem()
@@ -117,7 +117,7 @@ Partial Class MenuPrincipal
         Me.tsi_suplente.Size = New System.Drawing.Size(120, 22)
         Me.tsi_suplente.Text = "Suplente"
         '
-        'MenuPrincipal
+        'frm_menu_principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -128,7 +128,7 @@ Partial Class MenuPrincipal
         Me.Controls.Add(Me.mst_menu_principal)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Name = "MenuPrincipal"
+        Me.Name = "frm_menu_principal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menú Principal - Sabueso Feliz"
         Me.mst_menu_principal.ResumeLayout(False)

@@ -1,12 +1,19 @@
 ﻿Module modulo
 
     Dim string_conexion As String = "Provider=SQLOLEDB;Data Source=localhost\sqlexpress;Integrated Security=SSPI;Initial Catalog=proyecto_pav_1"
-    Dim cmd As New OleDb.OleDbCommand
-    Dim conexion As New OleDb.OleDbConnection
-    Dim dt As New Data.DataTable
+    Dim cmd As OleDb.OleDbCommand
+    Dim conexion As OleDb.OleDbConnection
+    Dim dt As Data.DataTable
     Public sql As String
+    Public sucursal As Integer
+    Public clave As Boolean
 
     Public Sub conectar()
+
+        conexion = New OleDb.OleDbConnection
+        cmd = New OleDb.OleDbCommand
+        dt = New Data.DataTable
+
         Try
             conexion.ConnectionString = string_conexion
             conexion.Open()
@@ -23,6 +30,7 @@
             conexion.Close()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
+            conexion.Close()
         End Try
 
     End Sub
@@ -30,21 +38,47 @@
     Public Function leo_tabla(ByVal tabla As String) As Data.DataTable
 
         conectar()
+        Try
+            cmd.CommandType = CommandType.Text
 
-        cmd.CommandType = CommandType.Text
+            sql = "select * from " & tabla
 
-        sql = "select * from " & tabla
+            cmd.CommandText = sql
 
-        cmd.CommandText = sql
+            dt.Load(cmd.ExecuteReader())
 
-        dt.Load(cmd.ExecuteReader())
-
-        cerrar()
+            cerrar()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+      
 
         Return dt
     End Function
 
-    Public Sub insert(ByVal instruccion As String)
+    Public Function leo_tabla(ByVal tabla As String, ByVal restriccion As String) As Data.DataTable
+        conectar()
+        Try
+            cmd.CommandType = CommandType.Text
+
+            sql = "select * from " & tabla & " where " & restriccion
+
+            cmd.CommandText = sql
+
+            dt.Load(cmd.ExecuteReader())
+
+            cerrar()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+        End Try
+
+
+        Return dt
+    End Function
+
+
+    Public Function insert(ByVal instruccion As String) As Boolean
         conectar()
 
         Try
@@ -53,38 +87,47 @@
             cmd.CommandText = sql
             cmd.ExecuteNonQuery()
             cerrar()
+            Return True
         Catch ex As Exception
             MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cerrar()
+            Return False
         End Try
 
-    End Sub
+    End Function
 
-    Public Sub update(ByVal instruccion As String)
-
+    Public Function update(ByVal instruccion As String) As Boolean
+        conectar()
         Try
             cmd.CommandType = CommandType.Text
             sql = instruccion
             cmd.CommandText = sql
             cmd.ExecuteNonQuery()
             cerrar()
+            Return True
         Catch ex As Exception
             MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cerrar()
+            Return False
         End Try
 
-    End Sub
+    End Function
 
-    Public Sub delete(ByVal instruccion As String)
-
+    Public Function delete(ByVal instruccion As String) As Boolean
+        conectar()
         Try
             cmd.CommandType = CommandType.Text
             sql = instruccion
             cmd.CommandText = sql
             cmd.ExecuteNonQuery()
             cerrar()
+            Return True
         Catch ex As Exception
             MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            cerrar()
+            Return False
         End Try
 
-    End Sub
+    End Function
 
 End Module

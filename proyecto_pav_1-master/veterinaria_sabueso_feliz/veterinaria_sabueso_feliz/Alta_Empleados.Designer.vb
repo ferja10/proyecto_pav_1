@@ -43,10 +43,10 @@ Partial Class frm_alta_empleados
         Me.lbl_nombre = New System.Windows.Forms.Label()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
-        Me.btn_cancelar = New System.Windows.Forms.Button()
-        Me.btn_buscar = New System.Windows.Forms.Button()
         Me.btn_salir = New System.Windows.Forms.Button()
         Me.lbl_sucursal = New System.Windows.Forms.Label()
+        Me.btn_buscar = New System.Windows.Forms.Button()
+        Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.pnl_datos_personales.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -139,6 +139,7 @@ Partial Class frm_alta_empleados
         '
         'txt_apellido
         '
+        Me.txt_apellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_apellido.Location = New System.Drawing.Point(131, 60)
         Me.txt_apellido.MaxLength = 50
         Me.txt_apellido.Name = "txt_apellido"
@@ -147,6 +148,7 @@ Partial Class frm_alta_empleados
         '
         'txt_nombre
         '
+        Me.txt_nombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_nombre.Location = New System.Drawing.Point(131, 15)
         Me.txt_nombre.MaxLength = 50
         Me.txt_nombre.Name = "txt_nombre"
@@ -251,27 +253,6 @@ Partial Class frm_alta_empleados
         Me.btn_guardar.TabIndex = 13
         Me.btn_guardar.UseVisualStyleBackColor = True
         '
-        'btn_cancelar
-        '
-        Me.btn_cancelar.Enabled = False
-        Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn_cancelar.Image = CType(resources.GetObject("btn_cancelar.Image"), System.Drawing.Image)
-        Me.btn_cancelar.Location = New System.Drawing.Point(119, 397)
-        Me.btn_cancelar.Name = "btn_cancelar"
-        Me.btn_cancelar.Size = New System.Drawing.Size(45, 37)
-        Me.btn_cancelar.TabIndex = 14
-        Me.btn_cancelar.UseVisualStyleBackColor = True
-        '
-        'btn_buscar
-        '
-        Me.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn_buscar.Image = CType(resources.GetObject("btn_buscar.Image"), System.Drawing.Image)
-        Me.btn_buscar.Location = New System.Drawing.Point(170, 397)
-        Me.btn_buscar.Name = "btn_buscar"
-        Me.btn_buscar.Size = New System.Drawing.Size(45, 37)
-        Me.btn_buscar.TabIndex = 15
-        Me.btn_buscar.UseVisualStyleBackColor = True
-        '
         'btn_salir
         '
         Me.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
@@ -289,6 +270,27 @@ Partial Class frm_alta_empleados
         Me.lbl_sucursal.Size = New System.Drawing.Size(65, 23)
         Me.lbl_sucursal.TabIndex = 17
         Me.lbl_sucursal.Text = "SUC XXX"
+        '
+        'btn_buscar
+        '
+        Me.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn_buscar.Image = CType(resources.GetObject("btn_buscar.Image"), System.Drawing.Image)
+        Me.btn_buscar.Location = New System.Drawing.Point(170, 397)
+        Me.btn_buscar.Name = "btn_buscar"
+        Me.btn_buscar.Size = New System.Drawing.Size(45, 37)
+        Me.btn_buscar.TabIndex = 15
+        Me.btn_buscar.UseVisualStyleBackColor = True
+        '
+        'btn_cancelar
+        '
+        Me.btn_cancelar.Enabled = False
+        Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn_cancelar.Image = CType(resources.GetObject("btn_cancelar.Image"), System.Drawing.Image)
+        Me.btn_cancelar.Location = New System.Drawing.Point(119, 397)
+        Me.btn_cancelar.Name = "btn_cancelar"
+        Me.btn_cancelar.Size = New System.Drawing.Size(45, 37)
+        Me.btn_cancelar.TabIndex = 14
+        Me.btn_cancelar.UseVisualStyleBackColor = True
         '
         'frm_alta_empleados
         '
@@ -335,9 +337,9 @@ Partial Class frm_alta_empleados
     Friend WithEvents lbl_nombre As System.Windows.Forms.Label
     Friend WithEvents btn_nuevo As System.Windows.Forms.Button
     Friend WithEvents btn_guardar As System.Windows.Forms.Button
-    Friend WithEvents btn_cancelar As System.Windows.Forms.Button
-    Friend WithEvents btn_buscar As System.Windows.Forms.Button
     Friend WithEvents btn_salir As System.Windows.Forms.Button
     Friend WithEvents lbl_sucursal As System.Windows.Forms.Label
+    Friend WithEvents btn_buscar As System.Windows.Forms.Button
+    Friend WithEvents btn_cancelar As System.Windows.Forms.Button
 
 End Class
