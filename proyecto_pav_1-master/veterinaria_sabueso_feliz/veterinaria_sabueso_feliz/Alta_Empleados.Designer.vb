@@ -43,11 +43,19 @@ Partial Class frm_alta_empleados
         Me.lbl_nombre = New System.Windows.Forms.Label()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
-        Me.btn_salir = New System.Windows.Forms.Button()
         Me.lbl_sucursal = New System.Windows.Forms.Label()
         Me.btn_buscar = New System.Windows.Forms.Button()
+        Me.pnl_buscar = New System.Windows.Forms.Panel()
+        Me.btn_eliminar = New System.Windows.Forms.Button()
+        Me.lbl_nombre_sucursal = New System.Windows.Forms.Label()
+        Me.btn_salir = New System.Windows.Forms.Button()
+        Me.lbl_apellido_a_buscar = New System.Windows.Forms.Label()
+        Me.txt_apellido_filtro = New System.Windows.Forms.TextBox()
+        Me.dgv_empleados = New System.Windows.Forms.DataGridView()
         Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.pnl_datos_personales.SuspendLayout()
+        Me.pnl_buscar.SuspendLayout()
+        CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl_datos_personales
@@ -233,13 +241,13 @@ Partial Class frm_alta_empleados
         '
         'btn_nuevo
         '
-        Me.btn_nuevo.BackColor = System.Drawing.Color.PaleGreen
+        Me.btn_nuevo.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_nuevo.Image = CType(resources.GetObject("btn_nuevo.Image"), System.Drawing.Image)
-        Me.btn_nuevo.Location = New System.Drawing.Point(17, 397)
+        Me.btn_nuevo.Location = New System.Drawing.Point(18, 396)
         Me.btn_nuevo.Name = "btn_nuevo"
-        Me.btn_nuevo.Size = New System.Drawing.Size(45, 37)
-        Me.btn_nuevo.TabIndex = 12
+        Me.btn_nuevo.Size = New System.Drawing.Size(45, 43)
+        Me.btn_nuevo.TabIndex = 3
         Me.btn_nuevo.UseVisualStyleBackColor = False
         '
         'btn_guardar
@@ -247,27 +255,18 @@ Partial Class frm_alta_empleados
         Me.btn_guardar.Enabled = False
         Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_guardar.Image = CType(resources.GetObject("btn_guardar.Image"), System.Drawing.Image)
-        Me.btn_guardar.Location = New System.Drawing.Point(68, 397)
+        Me.btn_guardar.Location = New System.Drawing.Point(12, 397)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(45, 37)
         Me.btn_guardar.TabIndex = 13
         Me.btn_guardar.UseVisualStyleBackColor = True
         '
-        'btn_salir
-        '
-        Me.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btn_salir.Image = CType(resources.GetObject("btn_salir.Image"), System.Drawing.Image)
-        Me.btn_salir.Location = New System.Drawing.Point(676, 397)
-        Me.btn_salir.Name = "btn_salir"
-        Me.btn_salir.Size = New System.Drawing.Size(45, 37)
-        Me.btn_salir.TabIndex = 16
-        Me.btn_salir.UseVisualStyleBackColor = True
-        '
         'lbl_sucursal
         '
+        Me.lbl_sucursal.AutoSize = True
         Me.lbl_sucursal.Location = New System.Drawing.Point(14, 9)
         Me.lbl_sucursal.Name = "lbl_sucursal"
-        Me.lbl_sucursal.Size = New System.Drawing.Size(65, 23)
+        Me.lbl_sucursal.Size = New System.Drawing.Size(53, 13)
         Me.lbl_sucursal.TabIndex = 17
         Me.lbl_sucursal.Text = "SUC XXX"
         '
@@ -275,18 +274,93 @@ Partial Class frm_alta_empleados
         '
         Me.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_buscar.Image = CType(resources.GetObject("btn_buscar.Image"), System.Drawing.Image)
-        Me.btn_buscar.Location = New System.Drawing.Point(170, 397)
+        Me.btn_buscar.Location = New System.Drawing.Point(114, 397)
         Me.btn_buscar.Name = "btn_buscar"
         Me.btn_buscar.Size = New System.Drawing.Size(45, 37)
         Me.btn_buscar.TabIndex = 15
         Me.btn_buscar.UseVisualStyleBackColor = True
+        '
+        'pnl_buscar
+        '
+        Me.pnl_buscar.Controls.Add(Me.btn_eliminar)
+        Me.pnl_buscar.Controls.Add(Me.lbl_nombre_sucursal)
+        Me.pnl_buscar.Controls.Add(Me.btn_salir)
+        Me.pnl_buscar.Controls.Add(Me.lbl_apellido_a_buscar)
+        Me.pnl_buscar.Controls.Add(Me.txt_apellido_filtro)
+        Me.pnl_buscar.Controls.Add(Me.btn_nuevo)
+        Me.pnl_buscar.Controls.Add(Me.dgv_empleados)
+        Me.pnl_buscar.Location = New System.Drawing.Point(-1, 1)
+        Me.pnl_buscar.Name = "pnl_buscar"
+        Me.pnl_buscar.Size = New System.Drawing.Size(736, 443)
+        Me.pnl_buscar.TabIndex = 18
+        '
+        'btn_eliminar
+        '
+        Me.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn_eliminar.Image = CType(resources.GetObject("btn_eliminar.Image"), System.Drawing.Image)
+        Me.btn_eliminar.Location = New System.Drawing.Point(75, 396)
+        Me.btn_eliminar.Name = "btn_eliminar"
+        Me.btn_eliminar.Size = New System.Drawing.Size(45, 43)
+        Me.btn_eliminar.TabIndex = 4
+        Me.btn_eliminar.UseVisualStyleBackColor = True
+        '
+        'lbl_nombre_sucursal
+        '
+        Me.lbl_nombre_sucursal.AutoSize = True
+        Me.lbl_nombre_sucursal.Location = New System.Drawing.Point(9, 21)
+        Me.lbl_nombre_sucursal.Name = "lbl_nombre_sucursal"
+        Me.lbl_nombre_sucursal.Size = New System.Drawing.Size(39, 13)
+        Me.lbl_nombre_sucursal.TabIndex = 3
+        Me.lbl_nombre_sucursal.Text = "Label1"
+        '
+        'btn_salir
+        '
+        Me.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btn_salir.Image = CType(resources.GetObject("btn_salir.Image"), System.Drawing.Image)
+        Me.btn_salir.Location = New System.Drawing.Point(671, 399)
+        Me.btn_salir.Name = "btn_salir"
+        Me.btn_salir.Size = New System.Drawing.Size(45, 37)
+        Me.btn_salir.TabIndex = 5
+        Me.btn_salir.UseVisualStyleBackColor = True
+        '
+        'lbl_apellido_a_buscar
+        '
+        Me.lbl_apellido_a_buscar.AutoSize = True
+        Me.lbl_apellido_a_buscar.Location = New System.Drawing.Point(72, 54)
+        Me.lbl_apellido_a_buscar.Name = "lbl_apellido_a_buscar"
+        Me.lbl_apellido_a_buscar.Size = New System.Drawing.Size(44, 13)
+        Me.lbl_apellido_a_buscar.TabIndex = 2
+        Me.lbl_apellido_a_buscar.Text = "Apellido"
+        '
+        'txt_apellido_filtro
+        '
+        Me.txt_apellido_filtro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txt_apellido_filtro.Location = New System.Drawing.Point(122, 51)
+        Me.txt_apellido_filtro.MaxLength = 50
+        Me.txt_apellido_filtro.Name = "txt_apellido_filtro"
+        Me.txt_apellido_filtro.Size = New System.Drawing.Size(452, 20)
+        Me.txt_apellido_filtro.TabIndex = 1
+        '
+        'dgv_empleados
+        '
+        Me.dgv_empleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgv_empleados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders
+        Me.dgv_empleados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgv_empleados.Location = New System.Drawing.Point(12, 96)
+        Me.dgv_empleados.Name = "dgv_empleados"
+        Me.dgv_empleados.ReadOnly = True
+        Me.dgv_empleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgv_empleados.Size = New System.Drawing.Size(704, 284)
+        Me.dgv_empleados.TabIndex = 2
+        Me.dgv_empleados.TabStop = False
         '
         'btn_cancelar
         '
         Me.btn_cancelar.Enabled = False
         Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_cancelar.Image = CType(resources.GetObject("btn_cancelar.Image"), System.Drawing.Image)
-        Me.btn_cancelar.Location = New System.Drawing.Point(119, 397)
+        Me.btn_cancelar.Location = New System.Drawing.Point(63, 397)
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(45, 37)
         Me.btn_cancelar.TabIndex = 14
@@ -299,13 +373,12 @@ Partial Class frm_alta_empleados
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(733, 440)
+        Me.Controls.Add(Me.pnl_buscar)
         Me.Controls.Add(Me.lbl_sucursal)
-        Me.Controls.Add(Me.btn_salir)
         Me.Controls.Add(Me.btn_buscar)
-        Me.Controls.Add(Me.btn_cancelar)
         Me.Controls.Add(Me.btn_guardar)
-        Me.Controls.Add(Me.btn_nuevo)
         Me.Controls.Add(Me.pnl_datos_personales)
+        Me.Controls.Add(Me.btn_cancelar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -314,7 +387,11 @@ Partial Class frm_alta_empleados
         Me.Text = "Alta de Empleados"
         Me.pnl_datos_personales.ResumeLayout(False)
         Me.pnl_datos_personales.PerformLayout()
+        Me.pnl_buscar.ResumeLayout(False)
+        Me.pnl_buscar.PerformLayout()
+        CType(Me.dgv_empleados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents pnl_datos_personales As System.Windows.Forms.Panel
@@ -337,9 +414,15 @@ Partial Class frm_alta_empleados
     Friend WithEvents lbl_nombre As System.Windows.Forms.Label
     Friend WithEvents btn_nuevo As System.Windows.Forms.Button
     Friend WithEvents btn_guardar As System.Windows.Forms.Button
-    Friend WithEvents btn_salir As System.Windows.Forms.Button
     Friend WithEvents lbl_sucursal As System.Windows.Forms.Label
     Friend WithEvents btn_buscar As System.Windows.Forms.Button
+    Friend WithEvents pnl_buscar As System.Windows.Forms.Panel
+    Friend WithEvents lbl_apellido_a_buscar As System.Windows.Forms.Label
+    Friend WithEvents txt_apellido_filtro As System.Windows.Forms.TextBox
+    Friend WithEvents dgv_empleados As System.Windows.Forms.DataGridView
+    Friend WithEvents btn_eliminar As System.Windows.Forms.Button
+    Friend WithEvents lbl_nombre_sucursal As System.Windows.Forms.Label
+    Friend WithEvents btn_salir As System.Windows.Forms.Button
     Friend WithEvents btn_cancelar As System.Windows.Forms.Button
 
 End Class

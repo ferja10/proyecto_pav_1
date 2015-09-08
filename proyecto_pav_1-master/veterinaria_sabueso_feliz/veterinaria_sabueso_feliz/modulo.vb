@@ -22,6 +22,7 @@
             MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             conexion.Close()
         End Try
+
     End Sub
 
     Public Sub cerrar()
@@ -35,7 +36,7 @@
 
     End Sub
 
-    Public Function leo_tabla(ByVal tabla As String) As Data.DataTable
+    Public Function _leo_tabla(ByVal tabla As String) As Data.DataTable
 
         conectar()
         Try
@@ -51,12 +52,13 @@
         Catch ex As Exception
             MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
-      
 
         Return dt
+
     End Function
 
-    Public Function leo_tabla(ByVal tabla As String, ByVal restriccion As String) As Data.DataTable
+    Public Function _leo_tabla(ByVal tabla As String, ByVal restriccion As String) As Data.DataTable
+
         conectar()
         Try
             cmd.CommandType = CommandType.Text
@@ -73,12 +75,37 @@
 
         End Try
 
+        Return dt
+
+    End Function
+
+    Public Function _leo_tabla(ByVal columnas As String, ByVal tabla As String, ByVal restriccion As String) As Data.DataTable
+
+        conectar()
+        Try
+            cmd.CommandType = CommandType.Text
+
+            sql = "select " & columnas & " from " & tabla
+            If Not restriccion.Trim = "" Then
+                sql &= " where " & restriccion
+            End If
+
+            cmd.CommandText = sql
+
+            dt.Load(cmd.ExecuteReader())
+
+            cerrar()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+        End Try
 
         Return dt
+
     End Function
 
 
-    Public Function insert(ByVal instruccion As String) As Boolean
+    Public Function _insertar(ByVal instruccion As String) As Boolean
         conectar()
 
         Try
@@ -96,7 +123,7 @@
 
     End Function
 
-    Public Function update(ByVal instruccion As String) As Boolean
+    Public Function _modificar(ByVal instruccion As String) As Boolean
         conectar()
         Try
             cmd.CommandType = CommandType.Text
@@ -113,7 +140,7 @@
 
     End Function
 
-    Public Function delete(ByVal instruccion As String) As Boolean
+    Public Function _eliminar(ByVal instruccion As String) As Boolean
         conectar()
         Try
             cmd.CommandType = CommandType.Text

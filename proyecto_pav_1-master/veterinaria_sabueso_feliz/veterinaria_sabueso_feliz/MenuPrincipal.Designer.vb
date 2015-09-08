@@ -124,6 +124,7 @@ Partial Class frm_menu_principal
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LightGreen
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(844, 527)
         Me.Controls.Add(Me.mst_menu_principal)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
