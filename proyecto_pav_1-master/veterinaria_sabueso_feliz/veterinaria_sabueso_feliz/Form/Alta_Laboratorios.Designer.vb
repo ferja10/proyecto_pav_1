@@ -30,6 +30,10 @@ Partial Class Alta_Laboratorios
         Me.LABORATORIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PanelGrilla = New System.Windows.Forms.Panel()
         Me.panel_Alta = New System.Windows.Forms.Panel()
+        Me.txt_RazonSocialNew = New System.Windows.Forms.TextBox()
+        Me.btn_Cancelar = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.btn_Aceptar = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txt_Id = New System.Windows.Forms.TextBox()
         Me.txt_Direccion = New System.Windows.Forms.TextBox()
@@ -37,15 +41,8 @@ Partial Class Alta_Laboratorios
         Me.btn_salir = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
-        Me.btn_Aceptar = New System.Windows.Forms.Button()
-        Me.btn_Cancelar = New System.Windows.Forms.Button()
-        Me.txt_RazonSocialNew = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Razon_Social = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Direccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgc_Laboratorios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LABORATORIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-
         Me.PanelGrilla.SuspendLayout()
         Me.panel_Alta.SuspendLayout()
         Me.SuspendLayout()
@@ -69,7 +66,6 @@ Partial Class Alta_Laboratorios
         'dgc_Laboratorios
         '
         Me.dgc_Laboratorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgc_Laboratorios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Razon_Social, Me.Direccion})
         Me.dgc_Laboratorios.Location = New System.Drawing.Point(20, 58)
         Me.dgc_Laboratorios.Name = "dgc_Laboratorios"
         Me.dgc_Laboratorios.Size = New System.Drawing.Size(704, 294)
@@ -78,11 +74,6 @@ Partial Class Alta_Laboratorios
         'LABORATORIOSBindingSource
         '
         Me.LABORATORIOSBindingSource.DataMember = "LABORATORIOS"
-
-        '
-        'PAVDataSet
-        '
-        
         '
         'PanelGrilla
         '
@@ -110,6 +101,40 @@ Partial Class Alta_Laboratorios
         Me.panel_Alta.Size = New System.Drawing.Size(739, 352)
         Me.panel_Alta.TabIndex = 1
         Me.panel_Alta.Visible = False
+        '
+        'txt_RazonSocialNew
+        '
+        Me.txt_RazonSocialNew.Location = New System.Drawing.Point(110, 25)
+        Me.txt_RazonSocialNew.Name = "txt_RazonSocialNew"
+        Me.txt_RazonSocialNew.Size = New System.Drawing.Size(364, 20)
+        Me.txt_RazonSocialNew.TabIndex = 9
+        '
+        'btn_Cancelar
+        '
+        Me.btn_Cancelar.Location = New System.Drawing.Point(399, 163)
+        Me.btn_Cancelar.Name = "btn_Cancelar"
+        Me.btn_Cancelar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_Cancelar.TabIndex = 5
+        Me.btn_Cancelar.Text = "Cancelar"
+        Me.btn_Cancelar.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(34, 28)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(70, 13)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "Razon Social"
+        '
+        'btn_Aceptar
+        '
+        Me.btn_Aceptar.Location = New System.Drawing.Point(110, 163)
+        Me.btn_Aceptar.Name = "btn_Aceptar"
+        Me.btn_Aceptar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_Aceptar.TabIndex = 4
+        Me.btn_Aceptar.Text = "Aceptar"
+        Me.btn_Aceptar.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -175,56 +200,6 @@ Partial Class Alta_Laboratorios
         Me.btn_eliminar.TabIndex = 5
         Me.btn_eliminar.UseVisualStyleBackColor = True
         '
-        'LABORATORIOSTableAdapter
-        '
-
-        '
-        'btn_Aceptar
-        '
-        Me.btn_Aceptar.Location = New System.Drawing.Point(110, 163)
-        Me.btn_Aceptar.Name = "btn_Aceptar"
-        Me.btn_Aceptar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_Aceptar.TabIndex = 4
-        Me.btn_Aceptar.Text = "Aceptar"
-        Me.btn_Aceptar.UseVisualStyleBackColor = True
-        '
-        'btn_Cancelar
-        '
-        Me.btn_Cancelar.Location = New System.Drawing.Point(399, 163)
-        Me.btn_Cancelar.Name = "btn_Cancelar"
-        Me.btn_Cancelar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_Cancelar.TabIndex = 5
-        Me.btn_Cancelar.Text = "Cancelar"
-        Me.btn_Cancelar.UseVisualStyleBackColor = True
-        '
-        'txt_RazonSocialNew
-        '
-        Me.txt_RazonSocialNew.Location = New System.Drawing.Point(110, 25)
-        Me.txt_RazonSocialNew.Name = "txt_RazonSocialNew"
-        Me.txt_RazonSocialNew.Size = New System.Drawing.Size(364, 20)
-        Me.txt_RazonSocialNew.TabIndex = 9
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(34, 28)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(70, 13)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "Razon Social"
-        '
-        'Razon_Social
-        '
-        Me.Razon_Social.HeaderText = "Razon Social"
-        Me.Razon_Social.Name = "Razon_Social"
-        Me.Razon_Social.ReadOnly = True
-        '
-        'Direccion
-        '
-        Me.Direccion.HeaderText = "Dirección"
-        Me.Direccion.Name = "Direccion"
-        Me.Direccion.ReadOnly = True
-        '
         'Alta_Laboratorios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -265,6 +240,4 @@ Partial Class Alta_Laboratorios
     Friend WithEvents btn_Aceptar As System.Windows.Forms.Button
     Friend WithEvents txt_RazonSocialNew As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Razon_Social As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Direccion As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

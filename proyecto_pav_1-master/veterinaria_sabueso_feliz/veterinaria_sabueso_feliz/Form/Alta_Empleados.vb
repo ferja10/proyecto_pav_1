@@ -322,4 +322,8 @@
     Private Sub btn_cancelar_Click(sender As System.Object, e As System.EventArgs)
         limpiar()
     End Sub
+
+    Private Sub pnl_buscar_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles pnl_buscar.Paint
+
+    End Sub
 End Class

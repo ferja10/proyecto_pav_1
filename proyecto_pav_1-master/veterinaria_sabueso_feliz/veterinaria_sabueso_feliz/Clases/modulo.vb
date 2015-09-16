@@ -1,8 +1,8 @@
 ﻿Module modulo
 
 
-    Dim string_conexion As String = "Provider=SQLOLEDB;Data Source=localhost\sqlexpress;Integrated Security=SSPI;Initial Catalog=proyecto_pav_1"
-    ''Dim string_conexion As String = "Provider=SQLNCLI10.1;Integrated Security=SSPI;Persist Security Info=False;User ID="";Initial Catalog=PAV;Data Source=USUARIO-PC\SQLEXPRESS;Initial File Name="";Server SPN="""
+    ''Dim string_conexion As String = "Provider=SQLOLEDB;Data Source=localhost\sqlexpress;Integrated Security=SSPI;Initial Catalog=proyecto_pav_1"
+    Dim string_conexion As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Usuario.Usuario-PC\Documents\Database1.accdb"
     Dim cmd As OleDb.OleDbCommand
     Dim conexion As OleDb.OleDbConnection
     Dim dt As Data.DataTable
@@ -15,15 +15,14 @@
         conexion = New OleDb.OleDbConnection
         cmd = New OleDb.OleDbCommand
         dt = New Data.DataTable
-
-        Try
-            conexion.ConnectionString = string_conexion
-            conexion.Open()
-            cmd.Connection = conexion
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            conexion.Close()
-        End Try
+        'Try
+        conexion.ConnectionString = string_conexion
+        conexion.Open()
+        cmd.Connection = conexion
+        'Catch ex As Exception
+        'MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        'conexion.Close()
+        ' End Try
 
     End Sub
 
