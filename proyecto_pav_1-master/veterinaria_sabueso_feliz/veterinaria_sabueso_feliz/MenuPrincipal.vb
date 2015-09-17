@@ -2,12 +2,6 @@
 
     Dim fc As New frm_clave
 
-    Private Sub tsi_nuevo_empleado_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsi_nuevo_empleado.Click
-
-        frm_alta_empleados.ShowDialog()
-
-    End Sub
-
 
     Private Sub frm_menu_principal_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
 
@@ -30,6 +24,18 @@
         Visible = True
         clave = True
         fc.ShowDialog()
+
+    End Sub
+
+    Private Sub tsi_subordinados_Click(sender As System.Object, e As System.EventArgs) Handles tsi_subordinados.Click
+
+        frm_alta_empleados.ShowDialog()
+
+    End Sub
+
+    Private Sub tsi_supervisores_Click(sender As System.Object, e As System.EventArgs) Handles tsi_supervisores.Click
+
+        frm_supervisores.ShowDialog()
 
     End Sub
 End Class

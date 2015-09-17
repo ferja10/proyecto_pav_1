@@ -1,11 +1,10 @@
 ﻿Public Class frm_alta_empleados
 
     Dim flag, modificar As Boolean
-    
+
     Private Sub btn_nuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_nuevo.Click
 
         pnl_buscar.Visible = False
-        carga_combo(cmb_tipo_documento, _leo_tabla("TIPO_DOCUMENTO"), "id_tipo_doc", "descripcion")
         limpiar()
         habilitar()
         txt_nombre.Focus()
@@ -20,7 +19,9 @@
         txt_apellido.Text = ""
         cmb_tipo_documento.SelectedIndex = -1
         msk_documento.Text = ""
+        dtp_fecha_ingreso.Text = Date.Today
         dtp_fecha_ingreso.MaxDate = Date.Today
+        dtp_fecha_nac.Text = Convert.ToDateTime(Date.Today.Day & "/" & Date.Today.Month & "/" & (Date.Today.Year - 18))
         dtp_fecha_nac.MaxDate = Convert.ToDateTime(Date.Today.Day & "/" & Date.Today.Month & "/" & (Date.Today.Year - 18))
         rdo_si.Checked = False
         rdo_no.Checked = True
@@ -85,20 +86,13 @@
         cargar_grilla(_leo_tabla("E.apellido as APELLIDO, E.nombre as NOMBRE, E.nro_doc as DOCUMENTO,E.fecha_nacimiento as NACIMIENTO, E.fecha_ingreso as INGRESO,E.matricula as MATRICULA, E.tipo_doc as 'TIPO DOCUMENTO'", _
                                 "EMPLEADOS E join SUCURSALES S on E.sucursal = S.id_sucursal", "estado = 1 and E.sucursal = " & sucursal))
 
+        carga_combo(cmb_tipo_documento, _leo_tabla("TIPO_DOCUMENTO"), "id_tipo_doc", "descripcion")
+
         txt_apellido_filtro.Focus()
 
     End Sub
 
-    Private Sub mostrar_sucursal(ByVal lbl As Label)
-
-        If sucursal = 1 Then
-            lbl.Text = "CASA CENTRAL"
-        Else
-            lbl.Text = "SUCURSAL " & sucursal
-        End If
-
-    End Sub
-
+  
     Private Sub carga_combo(ByVal combo As ComboBox, ByVal tabla As Data.DataTable, ByVal pk As String, ByVal descripcion As String)
         combo.DataSource = tabla
         combo.DisplayMember = descripcion
@@ -112,7 +106,7 @@
             If validar() Then
 
                 modificar_empleado()
-            
+
             Else
 
                 MessageBox.Show("Faltan datos", "Importante")
@@ -196,12 +190,51 @@
         End If
 
         If _insertar(sql) Then
+
             MessageBox.Show("Empleado cargado con exito", "Carga datos")
+
         Else
-            MessageBox.Show("La persona fue dada de baja o es de otra sucursal", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+            If MessageBox.Show("La persona fue dada de baja" & Chr(13) & "Desea volver a restaurar sus datos?", _
+                               "Importante", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Yes Then
+
+                If restaurar_datos(msk_documento, cmb_tipo_documento) Then
+
+                    MessageBox.Show("Se han recuperado los datos correctamente", "Alta empleados", MessageBoxButtons.OK)
+
+                    pnl_buscar.Visible = True
+
+                    cargar_grilla(_leo_tabla("E.apellido as APELLIDO, E.nombre as NOMBRE, E.nro_doc as DOCUMENTO,E.fecha_nacimiento as NACIMIENTO, E.fecha_ingreso as INGRESO,E.matricula as MATRICULA, E.tipo_doc as 'TIPO DOCUMENTO'", _
+                                "EMPLEADOS E join SUCURSALES S on E.sucursal = S.id_sucursal", "estado = 1 and E.sucursal = " & sucursal))
+
+                Else
+
+                    MessageBox.Show("Error al intentar recuperar los datos", "Alta empleados", MessageBoxButtons.OK)
+
+                End If
+
+            End If
+
         End If
 
     End Sub
+
+    Private Function restaurar_datos(ByVal nro_doc As MaskedTextBox, ByVal tipo_doc As ComboBox) As Boolean
+
+        sql = "update EMPLEADOS set estado = 1 where tipo_doc = " & tipo_doc.SelectedValue & "and nro_doc = " & nro_doc.Text
+
+        If _modificar(sql) Then
+
+            Return True
+
+        Else
+
+            Return False
+
+        End If
+
+    End Function
+
 
     Private Sub modificar_empleado()
 
@@ -221,8 +254,11 @@
         End If
 
         If _modificar(sql) Then
+
             MessageBox.Show("Empleado modificado con exito", "Carga datos")
+
             modificar = False
+
         End If
 
     End Sub
@@ -256,27 +292,49 @@
 
     End Sub
 
-    Private Sub btn_volver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-        txt_apellido_filtro.Text = ""
-        txt_nombre.Focus()
-        pnl_buscar.Visible = False
-
-    End Sub
-
+    
     Private Sub btn_eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_eliminar.Click
 
         If MessageBox.Show("Esta seguro de eliminar el siguiente registro?", "Dar de baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
 
-            eliminar_empleado(dgv_empleados.CurrentRow)
+            If Not validar_supervisor(dgv_empleados.CurrentRow) Then
 
-            cargar_grilla(_leo_tabla("apellido as APELLIDO, nombre as NOMBRE, nro_doc as DOCUMENTO,fecha_nacimiento as NACIMIENTO,fecha_ingreso as INGRESO,matricula as MATRICULA, tipo_doc as 'TIPO DOCUMENTO'", _
-                                "EMPLEADOS E join SUCURSALES S on E.sucursal = S.id_sucursal", "apellido like '%" & txt_apellido_filtro.Text.Trim & "%' and estado = 1 and E.sucursal = " & sucursal))
+                eliminar_empleado(dgv_empleados.CurrentRow)
+
+                cargar_grilla(_leo_tabla("E.apellido as APELLIDO, E.nombre as NOMBRE, E.nro_doc as DOCUMENTO,E.fecha_nacimiento as NACIMIENTO, E.fecha_ingreso as INGRESO,E.matricula as MATRICULA, E.tipo_doc as 'TIPO DOCUMENTO'", _
+                                "EMPLEADOS E join SUCURSALES S on E.sucursal = S.id_sucursal", "estado = 1 and E.sucursal = " & sucursal))
+
+            Else
+
+                If MessageBox.Show("El empleado que desea eliminar es es un supervisor" & Chr(13) & "debe darlo de baja primero de su puesto " & _
+                                Chr(13) & " desea eliminarlo como supervisor? ", "Importante", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
+
+                    frm_supervisores.ShowDialog()
+
+                End If
+
+            End If
+
 
         End If
 
     End Sub
 
+    Private Function validar_supervisor(ByVal grilla As DataGridViewRow) As Boolean
+
+        If _leo_tabla("SUCURSALES", "id_sucursal = " & sucursal & " and ((tipo_doc_superv = " & grilla.Cells("TIPO DOCUMENTO").Value & " and nro_doc_superv = " & grilla.Cells("DOCUMENTO").Value & ")" _
+                      & " or (tipo_doc_super_supl = " & grilla.Cells("TIPO DOCUMENTO").Value & "and nro_doc_super_supl = " & grilla.Cells("DOCUMENTO").Value & "))" _
+                      ).Rows.Count > 0 Then
+
+            Return True
+
+        Else
+
+            Return False
+
+        End If
+
+    End Function
 
     Private Sub eliminar_empleado(ByVal fila As DataGridViewRow)
 
@@ -312,14 +370,24 @@
             rdo_no.Checked = True
         End If
 
-        cmb_tipo_documento.SelectedValue = dgv_empleados.Rows(e.RowIndex).Cells(6).Value
+        cmb_tipo_documento.SelectedValue = dgv_empleados.Rows(e.RowIndex).Cells("TIPO DOCUMENTO").Value
 
         msk_documento.Enabled = False
         msk_matricula.Enabled = False
 
     End Sub
 
-    Private Sub btn_cancelar_Click(sender As System.Object, e As System.EventArgs)
+   
+    Private Sub btn_cancelar_Click_1(sender As System.Object, e As System.EventArgs) Handles btn_cancelar.Click
+
         limpiar()
+
+        If Not msk_documento.Enabled Then
+
+            msk_documento.Enabled = True
+
+        End If
+
     End Sub
+
 End Class

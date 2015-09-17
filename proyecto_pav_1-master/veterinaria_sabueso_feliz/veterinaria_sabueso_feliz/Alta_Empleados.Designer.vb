@@ -258,7 +258,7 @@ Partial Class frm_alta_empleados
         Me.btn_guardar.Location = New System.Drawing.Point(12, 397)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(45, 37)
-        Me.btn_guardar.TabIndex = 13
+        Me.btn_guardar.TabIndex = 10
         Me.btn_guardar.UseVisualStyleBackColor = True
         '
         'lbl_sucursal
@@ -277,7 +277,7 @@ Partial Class frm_alta_empleados
         Me.btn_buscar.Location = New System.Drawing.Point(114, 397)
         Me.btn_buscar.Name = "btn_buscar"
         Me.btn_buscar.Size = New System.Drawing.Size(45, 37)
-        Me.btn_buscar.TabIndex = 15
+        Me.btn_buscar.TabIndex = 12
         Me.btn_buscar.UseVisualStyleBackColor = True
         '
         'pnl_buscar
@@ -291,8 +291,8 @@ Partial Class frm_alta_empleados
         Me.pnl_buscar.Controls.Add(Me.dgv_empleados)
         Me.pnl_buscar.Location = New System.Drawing.Point(-1, 1)
         Me.pnl_buscar.Name = "pnl_buscar"
-        Me.pnl_buscar.Size = New System.Drawing.Size(736, 443)
-        Me.pnl_buscar.TabIndex = 18
+        Me.pnl_buscar.Size = New System.Drawing.Size(736, 447)
+        Me.pnl_buscar.TabIndex = 1
         '
         'btn_eliminar
         '
@@ -317,9 +317,9 @@ Partial Class frm_alta_empleados
         '
         Me.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_salir.Image = CType(resources.GetObject("btn_salir.Image"), System.Drawing.Image)
-        Me.btn_salir.Location = New System.Drawing.Point(671, 399)
+        Me.btn_salir.Location = New System.Drawing.Point(671, 396)
         Me.btn_salir.Name = "btn_salir"
-        Me.btn_salir.Size = New System.Drawing.Size(45, 37)
+        Me.btn_salir.Size = New System.Drawing.Size(45, 43)
         Me.btn_salir.TabIndex = 5
         Me.btn_salir.UseVisualStyleBackColor = True
         '
@@ -343,6 +343,8 @@ Partial Class frm_alta_empleados
         '
         'dgv_empleados
         '
+        Me.dgv_empleados.AllowUserToAddRows = False
+        Me.dgv_empleados.AllowUserToDeleteRows = False
         Me.dgv_empleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv_empleados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders
         Me.dgv_empleados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
@@ -363,7 +365,7 @@ Partial Class frm_alta_empleados
         Me.btn_cancelar.Location = New System.Drawing.Point(63, 397)
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(45, 37)
-        Me.btn_cancelar.TabIndex = 14
+        Me.btn_cancelar.TabIndex = 11
         Me.btn_cancelar.UseVisualStyleBackColor = True
         '
         'frm_alta_empleados
@@ -372,7 +374,7 @@ Partial Class frm_alta_empleados
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(733, 440)
+        Me.ClientSize = New System.Drawing.Size(733, 443)
         Me.Controls.Add(Me.pnl_buscar)
         Me.Controls.Add(Me.lbl_sucursal)
         Me.Controls.Add(Me.btn_buscar)
