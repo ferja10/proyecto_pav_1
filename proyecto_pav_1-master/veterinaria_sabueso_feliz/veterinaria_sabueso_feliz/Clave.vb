@@ -33,7 +33,6 @@
     Private Sub btn_cancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_cancelar.Click
 
         frm_menu_principal.Close()
-
     End Sub
 
     Private Sub msk_sucursal_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles msk_sucursal.KeyPress
@@ -54,13 +53,10 @@
                 Close()
             Else
                 MessageBox.Show("Clave o Usuario incorrecto", "Importante")
-                msk_sucursal.Focus()
             End If
         Else
             MessageBox.Show("Falta usuario/contraseña", "importante")
-            msk_sucursal.Focus()
         End If
-
     End Sub
 
     Private Sub txt_contraseña_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txt_contraseña.KeyPress
@@ -68,13 +64,10 @@
         If Asc(e.KeyChar) = 13 Then
             login()
         End If
-
+       
     End Sub
 
-    Private Sub frm_clave_FormClosed(sender As System.Object, e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
-        If clave Then
-            frm_menu_principal.Close()
-        End If
-    End Sub
+    Private Sub frm_clave_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class

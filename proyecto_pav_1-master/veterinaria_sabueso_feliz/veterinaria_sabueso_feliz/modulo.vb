@@ -157,28 +157,4 @@
 
     End Function
 
-    Public Sub cargar_grilla(ByVal grilla As DataGridView, ByVal tabla As Data.DataTable)
-
-        grilla.DataSource = tabla
-
-    End Sub
-
-    Public Sub cargar_combo(ByVal combo As ComboBox, ByVal tabla As Data.DataTable, ByVal pk As String, ByVal descripcion As String)
-
-        combo.DataSource = tabla
-        combo.ValueMember = pk
-        combo.DisplayMember = descripcion
-
-    End Sub
-
-    Public Sub mostrar_sucursal(ByVal lbl As Label)
-
-        If sucursal = 1 Then
-            lbl.Text = "CASA CENTRAL"
-        Else
-            lbl.Text = "SUCURSAL " & sucursal
-        End If
-
-    End Sub
-
 End Module
