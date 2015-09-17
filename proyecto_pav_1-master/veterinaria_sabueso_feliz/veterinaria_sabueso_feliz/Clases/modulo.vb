@@ -15,14 +15,14 @@
         conexion = New OleDb.OleDbConnection
         cmd = New OleDb.OleDbCommand
         dt = New Data.DataTable
-        'Try
-        conexion.ConnectionString = string_conexion
-        conexion.Open()
-        cmd.Connection = conexion
-        'Catch ex As Exception
-        'MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        'conexion.Close()
-        ' End Try
+        Try
+            conexion.ConnectionString = string_conexion
+            conexion.Open()
+            cmd.Connection = conexion
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString, "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            conexion.Close()
+        End Try
 
     End Sub
 
@@ -157,5 +157,10 @@
         End Try
 
     End Function
-
+    Public Sub _consulta(ByVal comando As String, ByRef _tabla As Data.DataTable)
+        conectar()
+        cmd.CommandText = comando
+        _tabla.Load(cmd.ExecuteReader())
+        conexion.Close()
+    End Sub
 End Module

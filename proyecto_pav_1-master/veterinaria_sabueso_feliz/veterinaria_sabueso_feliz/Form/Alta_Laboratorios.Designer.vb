@@ -27,7 +27,6 @@ Partial Class Alta_Laboratorios
         Me.Lbl_Razon_Social = New System.Windows.Forms.Label()
         Me.txt_Razon_Social = New System.Windows.Forms.TextBox()
         Me.dgc_Laboratorios = New System.Windows.Forms.DataGridView()
-        Me.LABORATORIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PanelGrilla = New System.Windows.Forms.Panel()
         Me.panel_Alta = New System.Windows.Forms.Panel()
         Me.txt_RazonSocialNew = New System.Windows.Forms.TextBox()
@@ -41,8 +40,12 @@ Partial Class Alta_Laboratorios
         Me.btn_salir = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
+        Me.TTNuevo = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TTEliminar = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TTSalir = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TTDirec = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TTRazonSoc = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.dgc_Laboratorios, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LABORATORIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelGrilla.SuspendLayout()
         Me.panel_Alta.SuspendLayout()
         Me.SuspendLayout()
@@ -71,15 +74,11 @@ Partial Class Alta_Laboratorios
         Me.dgc_Laboratorios.Size = New System.Drawing.Size(704, 294)
         Me.dgc_Laboratorios.TabIndex = 0
         '
-        'LABORATORIOSBindingSource
-        '
-        Me.LABORATORIOSBindingSource.DataMember = "LABORATORIOS"
-        '
         'PanelGrilla
         '
-        Me.PanelGrilla.Controls.Add(Me.dgc_Laboratorios)
         Me.PanelGrilla.Controls.Add(Me.txt_Razon_Social)
         Me.PanelGrilla.Controls.Add(Me.Lbl_Razon_Social)
+        Me.PanelGrilla.Controls.Add(Me.dgc_Laboratorios)
         Me.PanelGrilla.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelGrilla.Location = New System.Drawing.Point(0, 0)
         Me.PanelGrilla.Name = "PanelGrilla"
@@ -104,14 +103,14 @@ Partial Class Alta_Laboratorios
         '
         'txt_RazonSocialNew
         '
-        Me.txt_RazonSocialNew.Location = New System.Drawing.Point(110, 25)
+        Me.txt_RazonSocialNew.Location = New System.Drawing.Point(192, 77)
         Me.txt_RazonSocialNew.Name = "txt_RazonSocialNew"
         Me.txt_RazonSocialNew.Size = New System.Drawing.Size(364, 20)
         Me.txt_RazonSocialNew.TabIndex = 9
         '
         'btn_Cancelar
         '
-        Me.btn_Cancelar.Location = New System.Drawing.Point(399, 163)
+        Me.btn_Cancelar.Location = New System.Drawing.Point(481, 191)
         Me.btn_Cancelar.Name = "btn_Cancelar"
         Me.btn_Cancelar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Cancelar.TabIndex = 5
@@ -121,7 +120,7 @@ Partial Class Alta_Laboratorios
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(34, 28)
+        Me.Label3.Location = New System.Drawing.Point(34, 80)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(70, 13)
         Me.Label3.TabIndex = 8
@@ -129,7 +128,7 @@ Partial Class Alta_Laboratorios
         '
         'btn_Aceptar
         '
-        Me.btn_Aceptar.Location = New System.Drawing.Point(110, 163)
+        Me.btn_Aceptar.Location = New System.Drawing.Point(179, 191)
         Me.btn_Aceptar.Name = "btn_Aceptar"
         Me.btn_Aceptar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Aceptar.TabIndex = 4
@@ -139,7 +138,7 @@ Partial Class Alta_Laboratorios
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(34, 126)
+        Me.Label2.Location = New System.Drawing.Point(34, 36)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(131, 13)
         Me.Label2.TabIndex = 3
@@ -148,14 +147,14 @@ Partial Class Alta_Laboratorios
         'txt_Id
         '
         Me.txt_Id.Enabled = False
-        Me.txt_Id.Location = New System.Drawing.Point(171, 123)
+        Me.txt_Id.Location = New System.Drawing.Point(192, 33)
         Me.txt_Id.Name = "txt_Id"
         Me.txt_Id.Size = New System.Drawing.Size(62, 20)
         Me.txt_Id.TabIndex = 2
         '
         'txt_Direccion
         '
-        Me.txt_Direccion.Location = New System.Drawing.Point(110, 63)
+        Me.txt_Direccion.Location = New System.Drawing.Point(192, 121)
         Me.txt_Direccion.Name = "txt_Direccion"
         Me.txt_Direccion.Size = New System.Drawing.Size(364, 20)
         Me.txt_Direccion.TabIndex = 1
@@ -163,7 +162,7 @@ Partial Class Alta_Laboratorios
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(34, 66)
+        Me.Label1.Location = New System.Drawing.Point(34, 124)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(52, 13)
         Me.Label1.TabIndex = 0
@@ -206,16 +205,15 @@ Partial Class Alta_Laboratorios
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(753, 430)
-        Me.Controls.Add(Me.PanelGrilla)
         Me.Controls.Add(Me.panel_Alta)
         Me.Controls.Add(Me.btn_salir)
         Me.Controls.Add(Me.btn_nuevo)
         Me.Controls.Add(Me.btn_eliminar)
+        Me.Controls.Add(Me.PanelGrilla)
         Me.ImeMode = System.Windows.Forms.ImeMode.[On]
         Me.Name = "Alta_Laboratorios"
         Me.Text = "Laboriatorios"
         CType(Me.dgc_Laboratorios, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LABORATORIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelGrilla.ResumeLayout(False)
         Me.PanelGrilla.PerformLayout()
         Me.panel_Alta.ResumeLayout(False)
@@ -230,7 +228,6 @@ Partial Class Alta_Laboratorios
     Friend WithEvents btn_salir As System.Windows.Forms.Button
     Friend WithEvents btn_nuevo As System.Windows.Forms.Button
     Friend WithEvents btn_eliminar As System.Windows.Forms.Button
-    Friend WithEvents LABORATORIOSBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents panel_Alta As System.Windows.Forms.Panel
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -240,4 +237,9 @@ Partial Class Alta_Laboratorios
     Friend WithEvents btn_Aceptar As System.Windows.Forms.Button
     Friend WithEvents txt_RazonSocialNew As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents TTNuevo As System.Windows.Forms.ToolTip
+    Friend WithEvents TTEliminar As System.Windows.Forms.ToolTip
+    Friend WithEvents TTSalir As System.Windows.Forms.ToolTip
+    Friend WithEvents TTDirec As System.Windows.Forms.ToolTip
+    Friend WithEvents TTRazonSoc As System.Windows.Forms.ToolTip
 End Class
