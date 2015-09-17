@@ -4,7 +4,6 @@
         btn_eliminar.Enabled = False
         tablaLab = modulo._leo_tabla("LABORATORIOS")
         cargar_grilla(tablaLab)
-        'Indicadores de botones
         TTNuevo.SetToolTip(btn_nuevo, "Nuevo")
         TTEliminar.SetToolTip(btn_eliminar, "Eliminar Laboratorio Seleccionado")
         TTSalir.SetToolTip(btn_salir, "Salir")
@@ -17,7 +16,6 @@
     Private Sub btn_nuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_nuevo.Click
         panel_Alta.Visible = True
         txt_Id.Enabled = False
-        btn_eliminar.Enabled = False
         'Colocar numero de Identificacion
         'Asigno el valor con el incremento de una unidad
         txt_Id.Text = valorId() + 1
@@ -89,13 +87,4 @@
         txt_Direccion.Text = ""
     End Sub
 
-    Private Sub dgc_Laboratorios_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgc_Laboratorios.CellClick
-        btn_eliminar.Enabled = True
-    End Sub
-
-    Private Sub txt_Razon_Social_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_Razon_Social.TextChanged
-        btn_eliminar.Enabled = False
-        tablaLab = modulo._leo_tabla("LABORATORIOS", "razon_social LIKE '" & txt_Razon_Social.Text & "%'")
-        cargar_grilla(tablaLab)
-    End Sub
 End Class

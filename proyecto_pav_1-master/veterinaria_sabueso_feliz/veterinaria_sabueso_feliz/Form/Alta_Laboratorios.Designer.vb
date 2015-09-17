@@ -68,12 +68,9 @@ Partial Class Alta_Laboratorios
         '
         'dgc_Laboratorios
         '
-        Me.dgc_Laboratorios.AllowUserToAddRows = False
-        Me.dgc_Laboratorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgc_Laboratorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgc_Laboratorios.Location = New System.Drawing.Point(20, 58)
         Me.dgc_Laboratorios.Name = "dgc_Laboratorios"
-        Me.dgc_Laboratorios.ReadOnly = True
         Me.dgc_Laboratorios.Size = New System.Drawing.Size(704, 294)
         Me.dgc_Laboratorios.TabIndex = 0
         '
@@ -107,7 +104,6 @@ Partial Class Alta_Laboratorios
         'txt_RazonSocialNew
         '
         Me.txt_RazonSocialNew.Location = New System.Drawing.Point(192, 77)
-        Me.txt_RazonSocialNew.MaxLength = 50
         Me.txt_RazonSocialNew.Name = "txt_RazonSocialNew"
         Me.txt_RazonSocialNew.Size = New System.Drawing.Size(364, 20)
         Me.txt_RazonSocialNew.TabIndex = 9
@@ -159,7 +155,6 @@ Partial Class Alta_Laboratorios
         'txt_Direccion
         '
         Me.txt_Direccion.Location = New System.Drawing.Point(192, 121)
-        Me.txt_Direccion.MaxLength = 50
         Me.txt_Direccion.Name = "txt_Direccion"
         Me.txt_Direccion.Size = New System.Drawing.Size(364, 20)
         Me.txt_Direccion.TabIndex = 1
@@ -210,10 +205,10 @@ Partial Class Alta_Laboratorios
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(753, 430)
+        Me.Controls.Add(Me.panel_Alta)
         Me.Controls.Add(Me.btn_salir)
         Me.Controls.Add(Me.btn_nuevo)
         Me.Controls.Add(Me.btn_eliminar)
-        Me.Controls.Add(Me.panel_Alta)
         Me.Controls.Add(Me.PanelGrilla)
         Me.ImeMode = System.Windows.Forms.ImeMode.[On]
         Me.Name = "Alta_Laboratorios"
@@ -229,6 +224,7 @@ Partial Class Alta_Laboratorios
     Friend WithEvents Lbl_Razon_Social As System.Windows.Forms.Label
     Friend WithEvents txt_Razon_Social As System.Windows.Forms.TextBox
     Friend WithEvents dgc_Laboratorios As System.Windows.Forms.DataGridView
+    Friend WithEvents PanelGrilla As System.Windows.Forms.Panel
     Friend WithEvents btn_salir As System.Windows.Forms.Button
     Friend WithEvents btn_nuevo As System.Windows.Forms.Button
     Friend WithEvents btn_eliminar As System.Windows.Forms.Button
@@ -246,5 +242,4 @@ Partial Class Alta_Laboratorios
     Friend WithEvents TTSalir As System.Windows.Forms.ToolTip
     Friend WithEvents TTDirec As System.Windows.Forms.ToolTip
     Friend WithEvents TTRazonSoc As System.Windows.Forms.ToolTip
-    Public WithEvents PanelGrilla As System.Windows.Forms.Panel
 End Class
