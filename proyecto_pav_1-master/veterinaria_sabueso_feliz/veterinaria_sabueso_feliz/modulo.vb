@@ -104,6 +104,12 @@
 
     End Function
 
+    Public Sub _consulta(ByVal comando As String, ByRef _tabla As Data.DataTable)
+        conectar()
+        cmd.CommandText = comando
+        _tabla.Load(cmd.ExecuteReader())
+        conexion.Close()
+    End Sub
 
     Public Function _insertar(ByVal instruccion As String) As Boolean
         conectar()
@@ -155,6 +161,49 @@
             Return False
         End Try
 
+    End Function
+
+    Public Sub _cargar_grilla(ByVal grilla As DataGridView, ByVal tabla As Data.DataTable)
+
+        grilla.DataSource = tabla
+
+    End Sub
+
+    Public Sub _cargar_combo(ByVal combo As ComboBox, ByVal tabla As Data.DataTable, ByVal pk As String, ByVal descripcion As String)
+
+        combo.DataSource = tabla
+        combo.ValueMember = pk
+        combo.DisplayMember = descripcion
+
+    End Sub
+
+    Public Sub mostrar_sucursal(ByVal lbl As Label)
+
+        If sucursal = 1 Then
+            lbl.Text = "CASA CENTRAL"
+        Else
+            lbl.Text = "SUCURSAL " & sucursal
+        End If
+
+    End Sub
+
+    Public Function valorId(ByVal tabla As String) As Integer
+        Dim _tabla As New Data.DataTable
+        Dim valor As String
+        modulo._consulta("SELECT COUNT(*) AS ID FROM " & tabla, _tabla)
+        valor = _tabla.Rows(0)(0).ToString
+        Return valor
+    End Function
+
+
+    Public Function Existe(tabla As String, ByVal condicion As String) As Boolean
+        Dim _tabla As New Data.DataTable
+        _tabla = _leo_tabla(tabla, condicion)
+        If _tabla.Rows.Count() > 0 Then
+            Return True
+        Else
+            Return False
+        End If
     End Function
 
 End Module

@@ -53,6 +53,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -76,38 +77,86 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Botones.Designer.vb">
+    <Compile Include="busqueda.Designer.vb">
+      <DependentUpon>busqueda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="busqueda.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_alta_medicamentos.designer.vb">
+      <DependentUpon>frm_alta_medicamentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_alta_medicamentos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_alta_empleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_alta_empleados.Designer.vb">
+      <DependentUpon>frm_alta_empleados.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_alta_laboratorios.designer.vb">
+      <DependentUpon>frm_alta_laboratorios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_alta_laboratorios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_alta_Vacunas.designer.vb">
+      <DependentUpon>frm_alta_Vacunas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_alta_Vacunas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Botones.designer.vb">
       <DependentUpon>Botones.vb</DependentUpon>
     </Compile>
     <Compile Include="Botones.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Form\Alta_Empleados.vb">
+    <Compile Include="Formularios\frm_clave.Designer.vb">
+      <DependentUpon>frm_clave.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_clave.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Alta_Empleados.Designer.vb">
-      <DependentUpon>Alta_Empleados.vb</DependentUpon>
+    <Compile Include="Formularios\frm_alta_razas.designer.vb">
+      <DependentUpon>frm_alta_razas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_alta_razas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Clave.Designer.vb">
-      <DependentUpon>Clave.vb</DependentUpon>
+    <Compile Include="Formularios\frm_alta_Sucursal.designer.vb">
+      <DependentUpon>frm_alta_Sucursal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\Clave.vb">
+    <Compile Include="Formularios\frm_alta_Sucursal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Alta_Laboratorios.Designer.vb">
-      <DependentUpon>Alta_Laboratorios.vb</DependentUpon>
+    <Compile Include="Formularios\frm_supervisores.Designer.vb">
+      <DependentUpon>frm_supervisores.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\Alta_Laboratorios.vb">
+    <Compile Include="Formularios\frm_supervisores.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\MenuPrincipal.Designer.vb">
-      <DependentUpon>MenuPrincipal.vb</DependentUpon>
+    <Compile Include="Formularios\frm_menu_principal.Designer.vb">
+      <DependentUpon>frm_menu_principal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\MenuPrincipal.vb">
+    <Compile Include="Formularios\frm_menu_principal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clases\modulo.vb" />
+    <Compile Include="Formularios\frm_historia_clinica.Designer.vb">
+      <DependentUpon>frm_historia_clinica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_historia_clinica.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_consulta_medica.Designer.vb">
+      <DependentUpon>frm_consulta_medica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_consulta_medica.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -125,20 +174,44 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="busqueda.resx">
+      <DependentUpon>busqueda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_alta_medicamentos.resx">
+      <DependentUpon>frm_alta_medicamentos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_alta_empleados.resx">
+      <DependentUpon>frm_alta_empleados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_alta_laboratorios.resx">
+      <DependentUpon>frm_alta_laboratorios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_alta_Vacunas.resx">
+      <DependentUpon>frm_alta_Vacunas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Botones.resx">
       <DependentUpon>Botones.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Alta_Empleados.resx">
-      <DependentUpon>Alta_Empleados.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\frm_clave.resx">
+      <DependentUpon>frm_clave.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Clave.resx">
-      <DependentUpon>Clave.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\frm_alta_razas.resx">
+      <DependentUpon>frm_alta_razas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Alta_Laboratorios.resx">
-      <DependentUpon>Alta_Laboratorios.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\frm_alta_Sucursal.resx">
+      <DependentUpon>frm_alta_Sucursal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\MenuPrincipal.resx">
-      <DependentUpon>MenuPrincipal.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\frm_historia_clinica.resx">
+      <DependentUpon>frm_historia_clinica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_supervisores.resx">
+      <DependentUpon>frm_supervisores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_menu_principal.resx">
+      <DependentUpon>frm_menu_principal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_consulta_medica.resx">
+      <DependentUpon>frm_consulta_medica.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -148,7 +221,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -159,7 +231,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
