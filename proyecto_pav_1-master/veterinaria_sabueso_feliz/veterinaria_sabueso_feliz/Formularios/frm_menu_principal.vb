@@ -69,9 +69,20 @@
 
     End Sub
 
-    Private Sub tsi_cita_Click(sender As System.Object, e As System.EventArgs) Handles tsi_cita.Click
+
+    Private Sub btn_consulta_Click(sender As System.Object, e As System.EventArgs) Handles btn_consulta.Click
 
         frm_consulta_medica.ShowDialog()
 
+    End Sub
+
+    Private Sub btn_consultar_hc_Click(sender As System.Object, e As System.EventArgs) Handles btn_consultar_hc.Click
+
+    End Sub
+
+    Private Sub tsi_nuevo_Click(sender As System.Object, e As System.EventArgs) Handles tsi_nuevo.Click
+
+        frm_abm_historia_clinica.ShowDialog()
+        
     End Sub
 End Class

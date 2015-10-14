@@ -77,35 +77,41 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="busqueda.Designer.vb">
-      <DependentUpon>busqueda.vb</DependentUpon>
-    </Compile>
-    <Compile Include="busqueda.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Formularios\frm_alta_medicamentos.designer.vb">
-      <DependentUpon>frm_alta_medicamentos.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frm_alta_medicamentos.vb">
+    <Compile Include="ABM\frm_alta_empleados.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frm_alta_empleados.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frm_alta_empleados.Designer.vb">
+    <Compile Include="ABM\frm_alta_empleados.Designer.vb">
       <DependentUpon>frm_alta_empleados.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frm_alta_laboratorios.designer.vb">
+    <Compile Include="ABM\frm_alta_laboratorios.designer.vb">
       <DependentUpon>frm_alta_laboratorios.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frm_alta_laboratorios.vb">
+    <Compile Include="ABM\frm_alta_laboratorios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frm_alta_Vacunas.designer.vb">
+    <Compile Include="ABM\frm_alta_medicamentos.designer.vb">
+      <DependentUpon>frm_alta_medicamentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\frm_alta_medicamentos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\frm_alta_razas.Designer.vb">
+      <DependentUpon>frm_alta_razas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\frm_alta_razas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\frm_alta_Sucursal.designer.vb">
+      <DependentUpon>frm_alta_Sucursal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\frm_alta_Sucursal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM\frm_alta_Vacunas.designer.vb">
       <DependentUpon>frm_alta_Vacunas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frm_alta_Vacunas.vb">
+    <Compile Include="ABM\frm_alta_Vacunas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Botones.designer.vb">
@@ -120,22 +126,10 @@
     <Compile Include="Formularios\frm_clave.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frm_alta_razas.designer.vb">
-      <DependentUpon>frm_alta_razas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frm_alta_razas.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frm_alta_Sucursal.designer.vb">
-      <DependentUpon>frm_alta_Sucursal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frm_alta_Sucursal.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frm_supervisores.Designer.vb">
+    <Compile Include="ABM\frm_supervisores.Designer.vb">
       <DependentUpon>frm_supervisores.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frm_supervisores.vb">
+    <Compile Include="ABM\frm_supervisores.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frm_menu_principal.Designer.vb">
@@ -144,16 +138,22 @@
     <Compile Include="Formularios\frm_menu_principal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frm_historia_clinica.Designer.vb">
+    <Compile Include="ABM\frm_historia_clinica.designer.vb">
       <DependentUpon>frm_historia_clinica.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frm_historia_clinica.vb">
+    <Compile Include="ABM\frm_historia_clinica.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frm_consulta_medica.Designer.vb">
+    <Compile Include="ABM\frm_alta_dueño.designer.vb">
+      <DependentUpon>frm_alta_dueño.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABM\frm_alta_dueño.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transacciones\frm_consulta_medica.Designer.vb">
       <DependentUpon>frm_consulta_medica.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frm_consulta_medica.vb">
+    <Compile Include="Transacciones\frm_consulta_medica.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="modulo.vb" />
@@ -174,19 +174,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="busqueda.resx">
-      <DependentUpon>busqueda.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frm_alta_medicamentos.resx">
-      <DependentUpon>frm_alta_medicamentos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frm_alta_empleados.resx">
+    <EmbeddedResource Include="ABM\frm_alta_empleados.resx">
       <DependentUpon>frm_alta_empleados.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frm_alta_laboratorios.resx">
+    <EmbeddedResource Include="ABM\frm_alta_laboratorios.resx">
       <DependentUpon>frm_alta_laboratorios.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frm_alta_Vacunas.resx">
+    <EmbeddedResource Include="ABM\frm_alta_medicamentos.resx">
+      <DependentUpon>frm_alta_medicamentos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM\frm_alta_razas.resx">
+      <DependentUpon>frm_alta_razas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM\frm_alta_Sucursal.resx">
+      <DependentUpon>frm_alta_Sucursal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM\frm_alta_Vacunas.resx">
       <DependentUpon>frm_alta_Vacunas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Botones.resx">
@@ -195,22 +198,19 @@
     <EmbeddedResource Include="Formularios\frm_clave.resx">
       <DependentUpon>frm_clave.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frm_alta_razas.resx">
-      <DependentUpon>frm_alta_razas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frm_alta_Sucursal.resx">
-      <DependentUpon>frm_alta_Sucursal.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frm_historia_clinica.resx">
-      <DependentUpon>frm_historia_clinica.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frm_supervisores.resx">
+    <EmbeddedResource Include="ABM\frm_supervisores.resx">
       <DependentUpon>frm_supervisores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_menu_principal.resx">
       <DependentUpon>frm_menu_principal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frm_consulta_medica.resx">
+    <EmbeddedResource Include="ABM\frm_historia_clinica.resx">
+      <DependentUpon>frm_historia_clinica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM\frm_alta_dueño.resx">
+      <DependentUpon>frm_alta_dueño.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transacciones\frm_consulta_medica.resx">
       <DependentUpon>frm_consulta_medica.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

@@ -13,7 +13,7 @@
 
     End Function
 
-    Private Function validar_existensia() As Boolean
+    Private Function validar_existencia() As Boolean
 
         If _leo_tabla("SUCURSALES", _
                      "id_sucursal = " & msk_sucursal.Text.Trim & " and clave = '" & txt_contraseña.Text.Trim & "'").Rows.Count > 0 Then
@@ -48,7 +48,7 @@
 
         If validar() Then
 
-            If validar_existensia() Then
+            If validar_existencia() Then
                 sucursal = msk_sucursal.Text.Trim
                 clave = False
                 Close()

@@ -49,6 +49,9 @@ Partial Class frm_menu_principal
         Me.tsi_razas = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsi_medicamentos = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsi_Sucursales = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btn_consulta = New System.Windows.Forms.Button()
+        Me.btn_consultar_hc = New System.Windows.Forms.Button()
+        Me.btn_registrar_vacunacion = New System.Windows.Forms.Button()
         Me.mst_menu_principal.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -108,26 +111,26 @@ Partial Class frm_menu_principal
         '
         Me.mts_consultas.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsi_cita, Me.tsi_vacunacion, Me.tsi_internacion})
         Me.mts_consultas.Name = "mts_consultas"
-        Me.mts_consultas.Size = New System.Drawing.Size(71, 20)
-        Me.mts_consultas.Text = "Consultas"
+        Me.mts_consultas.Size = New System.Drawing.Size(45, 20)
+        Me.mts_consultas.Text = "Citas"
         '
         'tsi_cita
         '
         Me.tsi_cita.Name = "tsi_cita"
-        Me.tsi_cita.Size = New System.Drawing.Size(152, 22)
-        Me.tsi_cita.Text = "Cita"
+        Me.tsi_cita.Size = New System.Drawing.Size(136, 22)
+        Me.tsi_cita.Text = "Control"
         '
         'tsi_vacunacion
         '
         Me.tsi_vacunacion.Name = "tsi_vacunacion"
-        Me.tsi_vacunacion.Size = New System.Drawing.Size(152, 22)
+        Me.tsi_vacunacion.Size = New System.Drawing.Size(136, 22)
         Me.tsi_vacunacion.Text = "Vacunacion"
         '
         'tsi_internacion
         '
         Me.tsi_internacion.Name = "tsi_internacion"
-        Me.tsi_internacion.Size = New System.Drawing.Size(152, 22)
-        Me.tsi_internacion.Text = "Internacion"
+        Me.tsi_internacion.Size = New System.Drawing.Size(136, 22)
+        Me.tsi_internacion.Text = "internacion"
         '
         'mts_listados
         '
@@ -216,6 +219,33 @@ Partial Class frm_menu_principal
         Me.tsi_Sucursales.Size = New System.Drawing.Size(153, 22)
         Me.tsi_Sucursales.Text = "Sucursales"
         '
+        'btn_consulta
+        '
+        Me.btn_consulta.Location = New System.Drawing.Point(159, 60)
+        Me.btn_consulta.Name = "btn_consulta"
+        Me.btn_consulta.Size = New System.Drawing.Size(103, 23)
+        Me.btn_consulta.TabIndex = 1
+        Me.btn_consulta.Text = "Nueva Consulta"
+        Me.btn_consulta.UseVisualStyleBackColor = True
+        '
+        'btn_consultar_hc
+        '
+        Me.btn_consultar_hc.Location = New System.Drawing.Point(159, 100)
+        Me.btn_consultar_hc.Name = "btn_consultar_hc"
+        Me.btn_consultar_hc.Size = New System.Drawing.Size(103, 35)
+        Me.btn_consultar_hc.TabIndex = 2
+        Me.btn_consultar_hc.Text = "Historia Clinica"
+        Me.btn_consultar_hc.UseVisualStyleBackColor = True
+        '
+        'btn_registrar_vacunacion
+        '
+        Me.btn_registrar_vacunacion.Location = New System.Drawing.Point(159, 155)
+        Me.btn_registrar_vacunacion.Name = "btn_registrar_vacunacion"
+        Me.btn_registrar_vacunacion.Size = New System.Drawing.Size(103, 35)
+        Me.btn_registrar_vacunacion.TabIndex = 3
+        Me.btn_registrar_vacunacion.Text = "Registrar Vacunacion"
+        Me.btn_registrar_vacunacion.UseVisualStyleBackColor = True
+        '
         'frm_menu_principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -225,6 +255,9 @@ Partial Class frm_menu_principal
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(844, 527)
+        Me.Controls.Add(Me.btn_registrar_vacunacion)
+        Me.Controls.Add(Me.btn_consultar_hc)
+        Me.Controls.Add(Me.btn_consulta)
         Me.Controls.Add(Me.mst_menu_principal)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -250,7 +283,6 @@ Partial Class frm_menu_principal
     Friend WithEvents tsi_salir As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tsi_cita As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tsi_vacunacion As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents tsi_internacion As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tsi_listadoDeEmpleados As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tsi_inventarioDeMedicamentos As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tsi_inventarioDeVacunas As System.Windows.Forms.ToolStripMenuItem
@@ -263,4 +295,8 @@ Partial Class frm_menu_principal
     Friend WithEvents tsi_razas As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tsi_medicamentos As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tsi_Sucursales As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents tsi_internacion As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents btn_consulta As System.Windows.Forms.Button
+    Friend WithEvents btn_consultar_hc As System.Windows.Forms.Button
+    Friend WithEvents btn_registrar_vacunacion As System.Windows.Forms.Button
 End Class

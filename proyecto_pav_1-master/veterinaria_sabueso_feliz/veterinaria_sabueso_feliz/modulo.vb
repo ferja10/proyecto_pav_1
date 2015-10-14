@@ -187,14 +187,25 @@
 
     End Sub
 
-    Public Function valorId(ByVal tabla As String) As Integer
+    Public Function valorId(ByVal tabla As String, ByVal id As String) As Integer
         Dim _tabla As New Data.DataTable
         Dim valor As String
-        modulo._consulta("SELECT COUNT(*) AS ID FROM " & tabla, _tabla)
+        modulo._consulta("SELECT MAX(" & id & ") AS ID FROM " & tabla, _tabla)
         valor = _tabla.Rows(0)(0).ToString
-        Return valor
+        Return valor + 1
     End Function
 
+    Public Function valorId(ByVal tabla As String, ByVal id As String, ByVal restricionHAVIN As String) As Integer
+        Dim _tabla As New Data.DataTable
+        Dim valor As String
+        modulo._consulta("SELECT MAX(" & id & ") AS ID FROM " & tabla & restricionHAVIN, _tabla)
+        If _tabla.Rows.Count = 0 Then
+            valor = 1
+        Else
+            valor = _tabla.Rows(0)(0).ToString + 1
+        End If
+        Return valor
+    End Function
 
     Public Function Existe(tabla As String, ByVal condicion As String) As Boolean
         Dim _tabla As New Data.DataTable
