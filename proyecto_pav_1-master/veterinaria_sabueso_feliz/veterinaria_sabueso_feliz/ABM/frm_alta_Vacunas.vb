@@ -51,7 +51,7 @@
     End Sub
 
     Private Function Validar() As Boolean
-        If txt_Descripcion.Text = "" Then
+        If txt_DescripcionNueva.Text = "" Then
             MsgBox("Debe completar este campo")
             Return False
         End If
@@ -110,6 +110,7 @@
     Private Sub btn_nuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_nuevo.Click
         CambioAlta()
         Limpiar()
+        lbl_sucursal.Text = "Sucursal " & sucursal
         modifica = False
         txt_id.Text = modulo.valorId("VACUNAS", "id_vacuna")
     End Sub

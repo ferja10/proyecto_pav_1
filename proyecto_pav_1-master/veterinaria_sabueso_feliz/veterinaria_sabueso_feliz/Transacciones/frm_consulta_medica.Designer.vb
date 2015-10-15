@@ -462,6 +462,7 @@ Partial Class frm_consulta_medica
         '
         Me.dgv_ListaMedicamento.AllowUserToAddRows = False
         Me.dgv_ListaMedicamento.AllowUserToDeleteRows = False
+        Me.dgv_ListaMedicamento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv_ListaMedicamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_ListaMedicamento.Location = New System.Drawing.Point(43, 85)
         Me.dgv_ListaMedicamento.Name = "dgv_ListaMedicamento"
@@ -474,7 +475,7 @@ Partial Class frm_consulta_medica
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(1334, 563)
+        Me.ClientSize = New System.Drawing.Size(1284, 563)
         Me.Controls.Add(Me.spc_detalles)
         Me.Controls.Add(Me.btn_buscar_hc)
         Me.Controls.Add(Me.btn_buscar)

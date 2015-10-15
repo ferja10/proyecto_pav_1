@@ -5,6 +5,7 @@
         lbl_sucursal.Text += sucursal.ToString
         CambioGrilla()
         Limpiar()
+        txt_Fecha.MaxDate = Today
         btn_eliminar.Enabled = False
         tablaMed = modulo._leo_tabla("id_medicamento,descripcion As Descripcion,id_laboratorio,fecha_ultima_compra AS 'Fecha de Ultima Compra',estado", "MEDICAMENTOS", "estado = 1")
         cargar_grilla(tablaMed)
@@ -25,7 +26,6 @@
         CambioAlta()
         Limpiar()
         modificar = False
-        txt_Fecha.MaxDate = Today
         txt_Fecha.Text = Today
         'Colocar numero de Identificacion
         'Asigno el valor con el incremento de una unidad
@@ -82,15 +82,6 @@
         End If
     End Sub
 
-    Private Sub txt_Descripcion_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Descripcion.KeyPress
-        If Char.IsNumber(e.KeyChar) Then
-            e.KeyChar = ""
-        End If
-        If Char.IsPunctuation(e.KeyChar) Then
-            e.KeyChar = ""
-        End If
-    End Sub
-
     Private Sub txt_Medicamentos_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Medicamentos.KeyPress
         btn_eliminar.Enabled = False
         If Char.IsNumber(e.KeyChar) Then
@@ -111,11 +102,11 @@
     Private Sub btn_guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_guardar.Click
         If modificar Then
             modulo._modificar("update MEDICAMENTOS set descripcion = '" & txt_Descripcion.Text & "' , id_laboratorio = " & cmb_Laboratorio.SelectedValue & ", fecha_ultima_compra = '" & txt_Fecha.Text & "' Where id_medicamento = " & txt_Id.Text)
-            modulo._modificar("UPDATE MEDICAMENTOSXSUCURSAL SET cantidad_existente = " & txt_Cantidad_existente.Text & ", cantidad_minima = " & txt_CantidadMinima.Text & " WHERE id_medicamento = " & txt_Id.Text & " AND id_sucursal =" & sucursal)
+            modulo._modificar("UPDATE MEDICAMENTOxSUCURSAL SET cantidad_existente = " & txt_Cantidad_existente.Text & ", cantidad_minima = " & txt_CantidadMinima.Text & " WHERE id_medicamento = " & txt_Id.Text & " AND id_sucursal =" & sucursal)
         ElseIf Validar() Then
             'INSERT [INTO] table_or_view [(column_list)] data_values
             modulo._insertar("INSERT INTO MEDICAMENTOS (id_medicamento,descripcion,id_laboratorio,fecha_ultima_compra,estado) VALUES (" & txt_Id.Text & ",'" & txt_Descripcion.Text & "'," & cmb_Laboratorio.SelectedValue & ",'" & txt_Fecha.Text & "',1)")
-            modulo._insertar("INSERT INTO MEDICAMENTOSXSUCURSAL (id_medicamento,id_sucursal,cantidad_existente,cantidad_minima) VALUES (" & txt_Id.Text & "," & sucursal & "," & txt_Cantidad_existente.Text & "," & txt_CantidadMinima.Text & ")")
+            modulo._insertar("INSERT INTO MEDICAMENTOxSUCURSAL (id_medicamento,id_sucursal,cantidad_existente,cantidad_minima) VALUES (" & txt_Id.Text & "," & sucursal & "," & txt_Cantidad_existente.Text & "," & txt_CantidadMinima.Text & ")")
         Else
             Exit Sub
         End If
@@ -153,5 +144,21 @@
 
     Private Sub txt_Medicamentos_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_Medicamentos.KeyUp
         cargar_grilla(modulo._leo_tabla("id_medicamento,descripcion As Descripcion,id_laboratorio,fecha_ultima_compra AS 'Fecha de Ultima Compra',estado", "MEDICAMENTOS", "descripcion LIKE '%" & txt_Medicamentos.Text & "%' AND estado = 1"))
+    End Sub
+
+    Private Sub txt_Cantidad_existente_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Cantidad_existente.KeyPress
+        If Char.IsLetter(e.KeyChar) Then
+            e.KeyChar = ""
+        ElseIf Char.IsPunctuation(e.KeyChar) Then
+            e.KeyChar = ""
+        End If
+    End Sub
+
+    Private Sub txt_CantidadMinima_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_CantidadMinima.KeyPress
+        If Char.IsLetter(e.KeyChar) Then
+            e.KeyChar = ""
+        ElseIf Char.IsPunctuation(e.KeyChar) Then
+            e.KeyChar = ""
+        End If
     End Sub
 End Class

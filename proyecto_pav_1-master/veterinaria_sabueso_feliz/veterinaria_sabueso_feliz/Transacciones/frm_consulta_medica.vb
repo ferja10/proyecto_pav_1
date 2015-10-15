@@ -26,7 +26,9 @@
 
     Private Sub btn_buscar_hc_Click(sender As System.Object, e As System.EventArgs) Handles btn_buscar_hc.Click
 
-        If Existe("PERROS", "nro_historia_clinica = " & msk_historia_clinica.Text.Trim & " and id_sucursal = " & sucursal & " and estado = 1") Then
+        If msk_historia_clinica.Text = "" Then
+            MsgBox("Debe colocar un numero de historia clinica")
+        ElseIf Existe("PERROS", "nro_historia_clinica = " & msk_historia_clinica.Text.Trim & " and id_sucursal = " & sucursal & " and estado = 1") Then
 
             txt_nombre_perro.Text = _leo_tabla("PERROS", "nro_historia_clinica = " & msk_historia_clinica.Text).Rows(0)(2)
 
@@ -128,7 +130,7 @@
         If Not cmb_diagnostico.SelectedValue = -1 Then
 
             _cargar_combo(cmb_sintoma, _leo_tabla("S.id_sintoma,S.descripcion", "SINTOMAS S, DIAGNOSTICOxSINTOMA DxS", _
-                                                 " estado = 1 and S.id_sintoma = DxS.id_sintoma and DxS.id_diagnostico = " & cmb_diagnostico.SelectedValue), _
+                                                 " S.estado = 1 and S.id_sintoma = DxS.id_sintoma and DxS.id_diagnostico = " & cmb_diagnostico.SelectedValue), _
                                              "id_sintoma", "descripcion")
 
         End If
@@ -162,6 +164,37 @@
     Private Sub btn_quitar_medicamento_Click(sender As System.Object, e As System.EventArgs) Handles btn_quitar_medicamento.Click
 
         dgv_MedicamentoSeleccionado.Rows.Remove(dgv_MedicamentoSeleccionado.CurrentRow)
+
+    End Sub
+
+    Private Sub btn_buscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_buscar.Click
+        Dim tablaConsulta As New Data.DataTable
+        Dim tablaPerro As New Data.DataTable
+        Dim tablaRaza As New Data.DataTable
+        Dim tablaDxC As New Data.DataTable
+        Dim tablaDiagnostico As New Data.DataTable
+        Dim tabladetalleSintoma As New Data.DataTable
+        Dim tabladetalleMedicamento As New Data.DataTable
+
+        tablaConsulta.Load(modulo._leo_tabla("CONSULTA", "id_consulta = " & txt_cod_consulta.Text & " AND id_sucursal = " & txt_sucursal.Text))
+        tablaPerro.Load(modulo._leo_tabla("nombre", "PERROS", "nro_historia_clinica = " & msk_historia_clinica.Text & "id_sucursal = " & txt_sucursal.Text))
+        tablaRaza.Load(modulo._leo_tabla("denominacion", "RAZAS", "id_raza = " & tablaPerro.Rows(0)("id_raza").ToString))
+        tablaDxC.Load(modulo._leo_tabla("id_diagnostico", "DIAGNOSTICOxCONSULTA", "id_sucursal = " & txt_sucursal.Text & " AND id_consulta = " & txt_cod_consulta.Text))
+        tablaDiagnostico.Load(modulo._leo_tabla("id_diagnostico", "DIAGNOSTICO", "id_diagnostico = " & tablaDxC.Rows(0)("id_diagnostico").ToString))
+        tabladetalleMedicamento.Load(modulo._leo_tabla("M.descripcion", " MEDICAMENTOS M INNER JOIN MEDICAMENTOxCONSULTA MC", "M.id_medicamento = MC.id_medicamento AND MC.id_consulta = " & txt_cod_consulta.Text & ", MC.nro_historia_clinica = " & msk_historia_clinica.Text & ", MC.id_sucursal = " & sucursal))
+
+        tabladetalleSintoma.Load(modulo._leo_tabla("S.descripcion", "SINTOMAS S INNER JOIN SINTOMAxCONSULTA SC", "S.id_sintoma = SC.id_sintoma AND SC.id_consulta = " & txt_cod_consulta.Text & ", SC.nro_historia_clinica = " & msk_historia_clinica.Text & ", SC.id_sucursal = " & sucursal))
+
+        dgv_detalle.DataSource = tabladetalleSintoma
+        dgv_MedicamentoSeleccionado.DataSource = tabladetalleMedicamento
+
+
+
+
+        msk_historia_clinica.Text = tablaConsulta.Rows(0)("nro_historia_clinica").ToString
+        txt_nombre_perro.Text = tablaPerro.Rows(0)("nombre").ToString
+        txt_raza.Text = tablaRaza.Rows(0)("denominacion").ToString
+        cmb_diagnostico.SelectedValue = tablaDiagnostico.Rows(0)("id_diagnostico")
 
     End Sub
 End Class

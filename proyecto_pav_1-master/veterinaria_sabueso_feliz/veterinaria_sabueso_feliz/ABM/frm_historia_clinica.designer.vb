@@ -34,7 +34,6 @@ Partial Class frm_abm_historia_clinica
         Me.combo_raza = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lbl_altura = New System.Windows.Forms.Label()
-        Me.msk_peso = New System.Windows.Forms.MaskedTextBox()
         Me.msk_altura = New System.Windows.Forms.MaskedTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgv_dueños = New System.Windows.Forms.DataGridView()
@@ -47,7 +46,7 @@ Partial Class frm_abm_historia_clinica
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.pnl_buscar = New System.Windows.Forms.Panel()
-        Me.sucursal = New System.Windows.Forms.Label()
+        Me.lblsucursal = New System.Windows.Forms.Label()
         Me.txt_sucursal = New System.Windows.Forms.MaskedTextBox()
         Me.GrillaHistoriaClinica = New System.Windows.Forms.DataGridView()
         Me.btn_buscar_hc = New System.Windows.Forms.Button()
@@ -55,6 +54,7 @@ Partial Class frm_abm_historia_clinica
         Me.lbl_nro_hc = New System.Windows.Forms.Label()
         Me.lbl_sucursal_frente = New System.Windows.Forms.Label()
         Me.txt_dueño = New System.Windows.Forms.TextBox()
+        Me.msk_peso = New System.Windows.Forms.MaskedTextBox()
         CType(Me.dgv_dueños, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl_buscar.SuspendLayout()
         CType(Me.GrillaHistoriaClinica, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,14 +156,6 @@ Partial Class frm_abm_historia_clinica
         Me.lbl_altura.TabIndex = 11
         Me.lbl_altura.Text = "Altura"
         '
-        'msk_peso
-        '
-        Me.msk_peso.Location = New System.Drawing.Point(151, 197)
-        Me.msk_peso.Mask = "99.99"
-        Me.msk_peso.Name = "msk_peso"
-        Me.msk_peso.Size = New System.Drawing.Size(41, 20)
-        Me.msk_peso.TabIndex = 12
-        '
         'msk_altura
         '
         Me.msk_altura.Location = New System.Drawing.Point(151, 239)
@@ -258,7 +250,6 @@ Partial Class frm_abm_historia_clinica
         '
         'btn_guardar
         '
-        Me.btn_guardar.Enabled = False
         Me.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_guardar.Image = CType(resources.GetObject("btn_guardar.Image"), System.Drawing.Image)
         Me.btn_guardar.Location = New System.Drawing.Point(6, 510)
@@ -269,7 +260,6 @@ Partial Class frm_abm_historia_clinica
         '
         'btn_cancelar
         '
-        Me.btn_cancelar.Enabled = False
         Me.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_cancelar.Image = CType(resources.GetObject("btn_cancelar.Image"), System.Drawing.Image)
         Me.btn_cancelar.Location = New System.Drawing.Point(63, 510)
@@ -280,7 +270,7 @@ Partial Class frm_abm_historia_clinica
         '
         'pnl_buscar
         '
-        Me.pnl_buscar.Controls.Add(Me.sucursal)
+        Me.pnl_buscar.Controls.Add(Me.lblsucursal)
         Me.pnl_buscar.Controls.Add(Me.txt_sucursal)
         Me.pnl_buscar.Controls.Add(Me.GrillaHistoriaClinica)
         Me.pnl_buscar.Controls.Add(Me.btn_buscar_hc)
@@ -295,18 +285,18 @@ Partial Class frm_abm_historia_clinica
         Me.pnl_buscar.Size = New System.Drawing.Size(859, 542)
         Me.pnl_buscar.TabIndex = 25
         '
-        'sucursal
+        'lblsucursal
         '
-        Me.sucursal.AutoSize = True
-        Me.sucursal.Location = New System.Drawing.Point(705, 30)
-        Me.sucursal.Name = "sucursal"
-        Me.sucursal.Size = New System.Drawing.Size(48, 13)
-        Me.sucursal.TabIndex = 28
-        Me.sucursal.Text = "Sucursal"
+        Me.lblsucursal.AutoSize = True
+        Me.lblsucursal.Location = New System.Drawing.Point(667, 30)
+        Me.lblsucursal.Name = "lblsucursal"
+        Me.lblsucursal.Size = New System.Drawing.Size(48, 13)
+        Me.lblsucursal.TabIndex = 28
+        Me.lblsucursal.Text = "Sucursal"
         '
         'txt_sucursal
         '
-        Me.txt_sucursal.Location = New System.Drawing.Point(759, 27)
+        Me.txt_sucursal.Location = New System.Drawing.Point(737, 27)
         Me.txt_sucursal.Name = "txt_sucursal"
         Me.txt_sucursal.Size = New System.Drawing.Size(100, 20)
         Me.txt_sucursal.TabIndex = 27
@@ -315,6 +305,7 @@ Partial Class frm_abm_historia_clinica
         '
         Me.GrillaHistoriaClinica.AllowUserToAddRows = False
         Me.GrillaHistoriaClinica.AllowUserToDeleteRows = False
+        Me.GrillaHistoriaClinica.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.GrillaHistoriaClinica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.GrillaHistoriaClinica.Location = New System.Drawing.Point(57, 87)
         Me.GrillaHistoriaClinica.Name = "GrillaHistoriaClinica"
@@ -362,6 +353,14 @@ Partial Class frm_abm_historia_clinica
         Me.txt_dueño.Name = "txt_dueño"
         Me.txt_dueño.Size = New System.Drawing.Size(502, 20)
         Me.txt_dueño.TabIndex = 16
+        '
+        'msk_peso
+        '
+        Me.msk_peso.Location = New System.Drawing.Point(151, 197)
+        Me.msk_peso.Mask = "99.99"
+        Me.msk_peso.Name = "msk_peso"
+        Me.msk_peso.Size = New System.Drawing.Size(41, 20)
+        Me.msk_peso.TabIndex = 12
         '
         'frm_abm_historia_clinica
         '
@@ -414,7 +413,6 @@ Partial Class frm_abm_historia_clinica
     Friend WithEvents combo_raza As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents lbl_altura As System.Windows.Forms.Label
-    Friend WithEvents msk_peso As System.Windows.Forms.MaskedTextBox
     Friend WithEvents msk_altura As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents dgv_dueños As System.Windows.Forms.DataGridView
@@ -432,7 +430,8 @@ Partial Class frm_abm_historia_clinica
     Friend WithEvents txt__nro_hc_buscar As System.Windows.Forms.TextBox
     Friend WithEvents lbl_nro_hc As System.Windows.Forms.Label
     Friend WithEvents lbl_sucursal_frente As System.Windows.Forms.Label
-    Friend WithEvents sucursal As System.Windows.Forms.Label
+    Friend WithEvents lblsucursal As System.Windows.Forms.Label
     Friend WithEvents txt_sucursal As System.Windows.Forms.MaskedTextBox
     Friend WithEvents txt_dueño As System.Windows.Forms.TextBox
+    Friend WithEvents msk_peso As System.Windows.Forms.MaskedTextBox
 End Class

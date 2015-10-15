@@ -33,13 +33,13 @@ Partial Class frm_alta_razas
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_salir = New System.Windows.Forms.Button()
         Me.PanelAlta = New System.Windows.Forms.Panel()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.txt_Cuidados = New System.Windows.Forms.TextBox()
         Me.txt_Denominacion = New System.Windows.Forms.TextBox()
         Me.txt_Codigo = New System.Windows.Forms.TextBox()
-        Me.txt_AMedH = New System.Windows.Forms.MaskedTextBox()
-        Me.txt_PMinH = New System.Windows.Forms.MaskedTextBox()
-        Me.txt_AMedM = New System.Windows.Forms.MaskedTextBox()
-        Me.txt_PMinM = New System.Windows.Forms.MaskedTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -48,6 +48,10 @@ Partial Class frm_alta_razas
         Me.Lebel2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_PMinM = New System.Windows.Forms.TextBox()
+        Me.txt_AMedM = New System.Windows.Forms.TextBox()
+        Me.txt_PMinH = New System.Windows.Forms.TextBox()
+        Me.txt_AMedH = New System.Windows.Forms.TextBox()
         Me.PanelGrilla.SuspendLayout()
         CType(Me.GrillaRaza, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelAlta.SuspendLayout()
@@ -147,13 +151,17 @@ Partial Class frm_alta_razas
         '
         'PanelAlta
         '
-        Me.PanelAlta.Controls.Add(Me.txt_Cuidados)
-        Me.PanelAlta.Controls.Add(Me.txt_Denominacion)
-        Me.PanelAlta.Controls.Add(Me.txt_Codigo)
         Me.PanelAlta.Controls.Add(Me.txt_AMedH)
         Me.PanelAlta.Controls.Add(Me.txt_PMinH)
         Me.PanelAlta.Controls.Add(Me.txt_AMedM)
         Me.PanelAlta.Controls.Add(Me.txt_PMinM)
+        Me.PanelAlta.Controls.Add(Me.Label10)
+        Me.PanelAlta.Controls.Add(Me.Label9)
+        Me.PanelAlta.Controls.Add(Me.Label8)
+        Me.PanelAlta.Controls.Add(Me.Label2)
+        Me.PanelAlta.Controls.Add(Me.txt_Cuidados)
+        Me.PanelAlta.Controls.Add(Me.txt_Denominacion)
+        Me.PanelAlta.Controls.Add(Me.txt_Codigo)
         Me.PanelAlta.Controls.Add(Me.Label7)
         Me.PanelAlta.Controls.Add(Me.Label6)
         Me.PanelAlta.Controls.Add(Me.Label5)
@@ -165,6 +173,42 @@ Partial Class frm_alta_razas
         Me.PanelAlta.Name = "PanelAlta"
         Me.PanelAlta.Size = New System.Drawing.Size(739, 352)
         Me.PanelAlta.TabIndex = 4
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(187, 174)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(21, 13)
+        Me.Label10.TabIndex = 17
+        Me.Label10.Text = "cm"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(187, 148)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(13, 13)
+        Me.Label9.TabIndex = 16
+        Me.Label9.Text = "g"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(187, 122)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(21, 13)
+        Me.Label8.TabIndex = 15
+        Me.Label8.Text = "cm"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(186, 96)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(20, 13)
+        Me.Label2.TabIndex = 14
+        Me.Label2.Text = "Kg"
         '
         'txt_Cuidados
         '
@@ -190,42 +234,6 @@ Partial Class frm_alta_razas
         Me.txt_Codigo.Name = "txt_Codigo"
         Me.txt_Codigo.Size = New System.Drawing.Size(65, 20)
         Me.txt_Codigo.TabIndex = 11
-        '
-        'txt_AMedH
-        '
-        Me.txt_AMedH.Location = New System.Drawing.Point(143, 171)
-        Me.txt_AMedH.Mask = "999"
-        Me.txt_AMedH.Name = "txt_AMedH"
-        Me.txt_AMedH.PromptChar = Global.Microsoft.VisualBasic.ChrW(48)
-        Me.txt_AMedH.Size = New System.Drawing.Size(37, 20)
-        Me.txt_AMedH.TabIndex = 10
-        '
-        'txt_PMinH
-        '
-        Me.txt_PMinH.Location = New System.Drawing.Point(143, 145)
-        Me.txt_PMinH.Mask = "999"
-        Me.txt_PMinH.Name = "txt_PMinH"
-        Me.txt_PMinH.PromptChar = Global.Microsoft.VisualBasic.ChrW(48)
-        Me.txt_PMinH.Size = New System.Drawing.Size(37, 20)
-        Me.txt_PMinH.TabIndex = 9
-        '
-        'txt_AMedM
-        '
-        Me.txt_AMedM.Location = New System.Drawing.Point(143, 119)
-        Me.txt_AMedM.Mask = "999"
-        Me.txt_AMedM.Name = "txt_AMedM"
-        Me.txt_AMedM.PromptChar = Global.Microsoft.VisualBasic.ChrW(48)
-        Me.txt_AMedM.Size = New System.Drawing.Size(37, 20)
-        Me.txt_AMedM.TabIndex = 8
-        '
-        'txt_PMinM
-        '
-        Me.txt_PMinM.Location = New System.Drawing.Point(143, 93)
-        Me.txt_PMinM.Mask = "999"
-        Me.txt_PMinM.Name = "txt_PMinM"
-        Me.txt_PMinM.PromptChar = Global.Microsoft.VisualBasic.ChrW(48)
-        Me.txt_PMinM.Size = New System.Drawing.Size(37, 20)
-        Me.txt_PMinM.TabIndex = 7
         '
         'Label7
         '
@@ -299,10 +307,41 @@ Partial Class frm_alta_razas
         Me.MaskedTextBox1.Size = New System.Drawing.Size(37, 20)
         Me.MaskedTextBox1.TabIndex = 7
         '
+        'txt_PMinM
+        '
+        Me.txt_PMinM.Location = New System.Drawing.Point(143, 93)
+        Me.txt_PMinM.MaxLength = 3
+        Me.txt_PMinM.Name = "txt_PMinM"
+        Me.txt_PMinM.Size = New System.Drawing.Size(37, 20)
+        Me.txt_PMinM.TabIndex = 18
+        '
+        'txt_AMedM
+        '
+        Me.txt_AMedM.Location = New System.Drawing.Point(143, 119)
+        Me.txt_AMedM.MaxLength = 2
+        Me.txt_AMedM.Name = "txt_AMedM"
+        Me.txt_AMedM.Size = New System.Drawing.Size(26, 20)
+        Me.txt_AMedM.TabIndex = 19
+        '
+        'txt_PMinH
+        '
+        Me.txt_PMinH.Location = New System.Drawing.Point(143, 146)
+        Me.txt_PMinH.MaxLength = 3
+        Me.txt_PMinH.Name = "txt_PMinH"
+        Me.txt_PMinH.Size = New System.Drawing.Size(37, 20)
+        Me.txt_PMinH.TabIndex = 20
+        '
+        'txt_AMedH
+        '
+        Me.txt_AMedH.Location = New System.Drawing.Point(143, 173)
+        Me.txt_AMedH.MaxLength = 2
+        Me.txt_AMedH.Name = "txt_AMedH"
+        Me.txt_AMedH.Size = New System.Drawing.Size(26, 20)
+        Me.txt_AMedH.TabIndex = 21
+        '
         'frm_alta_razas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(753, 430)
@@ -311,12 +350,12 @@ Partial Class frm_alta_razas
         Me.Controls.Add(Me.btn_Cancelar)
         Me.Controls.Add(Me.btn_eliminar)
         Me.Controls.Add(Me.btn_nuevo)
-        Me.Controls.Add(Me.PanelGrilla)
         Me.Controls.Add(Me.PanelAlta)
+        Me.Controls.Add(Me.PanelGrilla)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frm_alta_razas"
-        Me.Text = "Alta_razas"
+        Me.Text = "Razas"
         Me.PanelGrilla.ResumeLayout(False)
         Me.PanelGrilla.PerformLayout()
         CType(Me.GrillaRaza, System.ComponentModel.ISupportInitialize).EndInit()
@@ -338,10 +377,6 @@ Partial Class frm_alta_razas
     Friend WithEvents txt_Cuidados As System.Windows.Forms.TextBox
     Friend WithEvents txt_Denominacion As System.Windows.Forms.TextBox
     Friend WithEvents txt_Codigo As System.Windows.Forms.TextBox
-    Friend WithEvents txt_AMedH As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents txt_PMinH As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents txt_AMedM As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents txt_PMinM As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -350,4 +385,12 @@ Partial Class frm_alta_razas
     Friend WithEvents Lebel2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents MaskedTextBox1 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents txt_PMinM As System.Windows.Forms.TextBox
+    Friend WithEvents txt_PMinH As System.Windows.Forms.TextBox
+    Friend WithEvents txt_AMedM As System.Windows.Forms.TextBox
+    Friend WithEvents txt_AMedH As System.Windows.Forms.TextBox
 End Class

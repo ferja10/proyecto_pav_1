@@ -1,6 +1,7 @@
 ﻿Module modulo
 
-    Dim string_conexion As String = "Provider=SQLOLEDB;Data Source=localhost\sqlexpress;Integrated Security=SSPI;Initial Catalog=proyecto_pav_1"
+    'Dim string_conexion As String = "Provider=SQLOLEDB;Data Source=localhost\sqlexpress;Integrated Security=SSPI;Initial Catalog=proyecto_pav_1"
+    Dim string_conexion As String = "Provider=SQLNCLI10.1;Data Source=USUARIO-PC\SQLEXPRESS;Initial Catalog=PAV;Integrated Security=SSPI"
     Dim cmd As OleDb.OleDbCommand
     Dim conexion As OleDb.OleDbConnection
     Dim dt As Data.DataTable
@@ -191,8 +192,12 @@
         Dim _tabla As New Data.DataTable
         Dim valor As String
         modulo._consulta("SELECT MAX(" & id & ") AS ID FROM " & tabla, _tabla)
-        valor = _tabla.Rows(0)(0).ToString
-        Return valor + 1
+        If IsDBNull(_tabla.Rows(0)(0)) Then
+            valor = 1
+        Else
+            valor = _tabla.Rows(0)(0) + 1
+        End If
+        Return valor
     End Function
 
     Public Function valorId(ByVal tabla As String, ByVal id As String, ByVal restricionHAVIN As String) As Integer

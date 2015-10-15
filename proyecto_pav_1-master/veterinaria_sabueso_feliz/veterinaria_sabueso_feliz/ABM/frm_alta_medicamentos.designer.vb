@@ -32,8 +32,6 @@ Partial Class frm_alta_medicamentos
         Me.btn_Cancelar = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.panel_Alta = New System.Windows.Forms.Panel()
-        Me.txt_Cantidad_existente = New System.Windows.Forms.MaskedTextBox()
-        Me.txt_CantidadMinima = New System.Windows.Forms.MaskedTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lbl_sucursal = New System.Windows.Forms.Label()
@@ -51,6 +49,8 @@ Partial Class frm_alta_medicamentos
         Me.TTEliminar = New System.Windows.Forms.ToolTip(Me.components)
         Me.TTSalir = New System.Windows.Forms.ToolTip(Me.components)
         Me.TTDesc = New System.Windows.Forms.ToolTip(Me.components)
+        Me.txt_CantidadMinima = New System.Windows.Forms.TextBox()
+        Me.txt_Cantidad_existente = New System.Windows.Forms.TextBox()
         CType(Me.dgc_Medicamentos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelGrilla.SuspendLayout()
         Me.panel_Alta.SuspendLayout()
@@ -147,24 +147,6 @@ Partial Class frm_alta_medicamentos
         Me.panel_Alta.Size = New System.Drawing.Size(739, 352)
         Me.panel_Alta.TabIndex = 1
         Me.panel_Alta.Visible = False
-        '
-        'txt_Cantidad_existente
-        '
-        Me.txt_Cantidad_existente.Location = New System.Drawing.Point(281, 233)
-        Me.txt_Cantidad_existente.Mask = "999999999"
-        Me.txt_Cantidad_existente.Name = "txt_Cantidad_existente"
-        Me.txt_Cantidad_existente.PromptChar = Global.Microsoft.VisualBasic.ChrW(48)
-        Me.txt_Cantidad_existente.Size = New System.Drawing.Size(63, 20)
-        Me.txt_Cantidad_existente.TabIndex = 19
-        '
-        'txt_CantidadMinima
-        '
-        Me.txt_CantidadMinima.Location = New System.Drawing.Point(125, 233)
-        Me.txt_CantidadMinima.Mask = "99999999"
-        Me.txt_CantidadMinima.Name = "txt_CantidadMinima"
-        Me.txt_CantidadMinima.PromptChar = Global.Microsoft.VisualBasic.ChrW(48)
-        Me.txt_CantidadMinima.Size = New System.Drawing.Size(54, 20)
-        Me.txt_CantidadMinima.TabIndex = 18
         '
         'Label6
         '
@@ -288,6 +270,22 @@ Partial Class frm_alta_medicamentos
         Me.btn_nuevo.TabIndex = 7
         Me.btn_nuevo.UseVisualStyleBackColor = False
         '
+        'txt_CantidadMinima
+        '
+        Me.txt_CantidadMinima.Location = New System.Drawing.Point(126, 232)
+        Me.txt_CantidadMinima.MaxLength = 7
+        Me.txt_CantidadMinima.Name = "txt_CantidadMinima"
+        Me.txt_CantidadMinima.Size = New System.Drawing.Size(75, 20)
+        Me.txt_CantidadMinima.TabIndex = 20
+        '
+        'txt_Cantidad_existente
+        '
+        Me.txt_Cantidad_existente.Location = New System.Drawing.Point(295, 232)
+        Me.txt_Cantidad_existente.MaxLength = 7
+        Me.txt_Cantidad_existente.Name = "txt_Cantidad_existente"
+        Me.txt_Cantidad_existente.Size = New System.Drawing.Size(77, 20)
+        Me.txt_Cantidad_existente.TabIndex = 21
+        '
         'frm_alta_medicamentos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -337,9 +335,9 @@ Partial Class frm_alta_medicamentos
     Friend WithEvents txt_Fecha As System.Windows.Forms.DateTimePicker
     Friend WithEvents btn_Cancelar As System.Windows.Forms.Button
     Friend WithEvents btn_guardar As System.Windows.Forms.Button
-    Friend WithEvents txt_Cantidad_existente As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents txt_CantidadMinima As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents lbl_sucursal As System.Windows.Forms.Label
+    Friend WithEvents txt_Cantidad_existente As System.Windows.Forms.TextBox
+    Friend WithEvents txt_CantidadMinima As System.Windows.Forms.TextBox
 End Class
