@@ -47,7 +47,6 @@
         Me.pnl_buscar.Visible = False
         Me.limpiar()
         modificar = False
-        txt_nro_historia_clinica.Text = modulo.valorId("PERROS", "nro_historia_clinica", " GROUP BY nro_historia_clinica,id_sucursal")
     End Sub
 
     Private Sub btn_guardar_Click(sender As System.Object, e As System.EventArgs) Handles btn_guardar.Click
@@ -55,7 +54,7 @@
             modulo._modificar("update PERROS set nro_historia_clinica = " & txt_nro_historia_clinica.Text & ", id_sucursal = " & txt_sucursal.Text & ", nombre = '" & txt_nombre.Text & "' , fecha_nacimiento = '" & dtp_fecha_nac.Value & "' , id_raza = " & combo_raza.SelectedValue & "peso = " & msk_altura.Text & ", altura = " & msk_altura.Text & ", id_dueño = " & dgv_dueños.CurrentRow.Cells("id_dueño").Value & " , estado = 1)")
         ElseIf Validar() Then
             'INSERT [INTO] table_or_view [(column_list)] data_values
-            modulo._insertar("insert into PERROS (nro_historia_clinica, id_sucursal, nombre, fecha_nacimiento, id_raza, peso, altura, id_dueño, estado) VALUES (" & txt_nro_historia_clinica.Text & ", " & sucursal & ", '" & txt_nombre.Text & "' , '" & dtp_fecha_nac.Value & "' , " & combo_raza.SelectedValue & ", " & CInt(msk_peso.Text) & ", " & CInt(msk_altura.Text) & ", " & dgv_dueños.CurrentRow.Cells(0).Value & ", 1)")
+            modulo._insertar("insert into PERROS (nro_historia_clinica, id_sucursal, nombre, fecha_nacimiento, id_raza, peso, altura, id_dueño, estado) VALUES (" & txt_nro_historia_clinica.Text & ", " & txt_sucursal.Text & ", '" & txt_nombre.Text & "' , '" & dtp_fecha_nac.Value & "' , " & combo_raza.SelectedValue & ", " & msk_peso.Text & ", " & msk_altura.Text & ", " & dgv_dueños.CurrentRow.Cells(0).Value & ", 1)")
         End If
         'Cambio de contexto
         'Limpar casilleros

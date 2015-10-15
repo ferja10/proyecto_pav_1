@@ -1,13 +1,14 @@
 ﻿Module modulo
 
-    'Dim string_conexion As String = "Provider=SQLOLEDB;Data Source=localhost\sqlexpress;Integrated Security=SSPI;Initial Catalog=proyecto_pav_1"
-    Dim string_conexion As String = "Provider=SQLNCLI10.1;Data Source=USUARIO-PC\SQLEXPRESS;Initial Catalog=PAV;Integrated Security=SSPI"
+    Dim string_conexion As String = "Provider=SQLOLEDB;Data Source=localhost\sqlexpress;Integrated Security=SSPI;Initial Catalog=proyecto_pav_1"
     Dim cmd As OleDb.OleDbCommand
     Dim conexion As OleDb.OleDbConnection
     Dim dt As Data.DataTable
     Public sql As String
     Public sucursal As Integer
     Public clave As Boolean
+    Dim transaccion As OleDb.OleDbTransaction
+
 
     Public Sub conectar()
 
@@ -192,12 +193,8 @@
         Dim _tabla As New Data.DataTable
         Dim valor As String
         modulo._consulta("SELECT MAX(" & id & ") AS ID FROM " & tabla, _tabla)
-        If IsDBNull(_tabla.Rows(0)(0)) Then
-            valor = 1
-        Else
-            valor = _tabla.Rows(0)(0) + 1
-        End If
-        Return valor
+        valor = _tabla.Rows(0)(0).ToString
+        Return valor + 1
     End Function
 
     Public Function valorId(ByVal tabla As String, ByVal id As String, ByVal restricionHAVIN As String) As Integer
@@ -221,5 +218,47 @@
             Return False
         End If
     End Function
+
+    Public Sub abrir_transaccion()
+
+        conectar()
+
+        Try
+
+            transaccion = conexion.BeginTransaction()
+            cmd.Transaction = transaccion
+
+
+        Catch ex As Exception
+
+            MessageBox.Show(ex.ToString, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+        End Try
+        
+    End Sub
+
+    Public Sub cerrar_transaccion()
+
+        Try
+            transaccion.Commit()
+
+        Catch ex As Exception
+
+            MessageBox.Show(ex.ToString, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+        End Try
+
+        
+    End Sub
+
+    Public Sub cancelar_transaccion()
+
+        Try
+            transaccion.Rollback()
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
 
 End Module

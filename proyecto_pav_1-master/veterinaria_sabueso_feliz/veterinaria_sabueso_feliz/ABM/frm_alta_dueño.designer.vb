@@ -81,7 +81,6 @@ Partial Class frm_alta_dueño
         '
         'txt_codigo
         '
-        Me.txt_codigo.Enabled = False
         Me.txt_codigo.Location = New System.Drawing.Point(87, 35)
         Me.txt_codigo.Name = "txt_codigo"
         Me.txt_codigo.Size = New System.Drawing.Size(100, 20)
@@ -193,7 +192,6 @@ Partial Class frm_alta_dueño
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(655, 268)
         Me.Controls.Add(Me.panel_duenos)
         Me.Controls.Add(Me.btn_salir)

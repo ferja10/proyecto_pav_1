@@ -150,6 +150,12 @@
     <Compile Include="ABM\frm_alta_dueño.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Transacciones\frm_busqueda_consulta.Designer.vb">
+      <DependentUpon>frm_busqueda_consulta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transacciones\frm_busqueda_consulta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Transacciones\frm_consulta_medica.Designer.vb">
       <DependentUpon>frm_consulta_medica.vb</DependentUpon>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM\frm_alta_dueño.resx">
       <DependentUpon>frm_alta_dueño.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transacciones\frm_busqueda_consulta.resx">
+      <DependentUpon>frm_busqueda_consulta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transacciones\frm_consulta_medica.resx">
       <DependentUpon>frm_consulta_medica.vb</DependentUpon>

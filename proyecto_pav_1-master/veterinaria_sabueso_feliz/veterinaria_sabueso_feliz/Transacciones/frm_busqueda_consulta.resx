@@ -117,24 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="LineShape1.Bounds" type="System.Drawing.Rectangle, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>2, 238, 428, 0</value>
-  </metadata>
-  <metadata name="LineShape1.Location" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>2, 238</value>
-  </metadata>
-  <metadata name="LineShape1.Size" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>428, 0</value>
-  </metadata>
-  <metadata name="LineShape1.Bounds" type="System.Drawing.Rectangle, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>2, 238, 428, 0</value>
-  </metadata>
-  <metadata name="LineShape1.Location" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>2, 238</value>
-  </metadata>
-  <metadata name="LineShape1.Size" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>428, 0</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btn_salir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -149,6 +131,23 @@
         gzMzOERmZmgxEREREREXV3MzMzOERmZoMRERERERF3FzMzMzOERmaDERERERERERczMzMzOERmgxERER
         EREREXMzMzMzOERoMRERERERERFzMzMzMzOERzERERERERERd3d3d3d3d3cRERERERERERERERERERER
         ERE=
+</value>
+  </data>
+  <data name="btn_eliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAApNJREFUWEe9lyGW2zAURb2UAV2AQZdRMKBgluAlBAYGFhoOHBjQBQQWDDAMKBgY
+        MCAL6Dmq7peeIzuWnLhOdc47X4m+/nv/SfZJqqWjaVp3D+K25WNcsG2Fzu12u2LcbDbLhWjj/u2HOxwO
+        bv9z74u27vnbs6u/NgbNicoXEAFeX99sH3mxdHmoAKSALkSYkr18f7GoLs0Vi52JJkIuIdSaFZESk/z0
+        5SkS1wPypmksmtV+DpmOJTh1ico7H3+VBZDoXDcivrZZHRt5G8jV8RQ5wk6no8WsAIrmyJsROR2XyFlL
+        iemcOd9lBbAoARIx7nxg+4ic70SMEBHrAipnVgDdSUSWPDrAZx0HdwbSKWLBbysLYBMiOjYmQjiCVASR
+        3O69G5Dq8rIGcELHwudZB5R4PPqinycTUwKkiIAkJZWQ7t0NRMw6gGVsTIukULExEBHgZSVz1urq0thN
+        DoSCoZCcmES0HnBktb9CtXUIOhNMHQTYkd7jAOQfvz/c+Xw2uD8X6DORPIgpbMUFL6LyIv7JAXWXkgtF
+        8igAFxABHuJAjb1eAMUBFzJcymsRqztg3fsciJUn8l5EPIaHOCABRu4vZPcZ5v/VASJilCfy/j5E8tUd
+        4IXtU4sOsJ9IM2BVB1q/hggEIER54zug9wAOSMQqDjRRQBVF6FHMObD6HRgLsOOIIsDAAd/Qwxyw7qOA
+        nANcRP1cW90Buu4FRBHsk4jwGIZ3xUMcgGhKhMCjmJJTO0vOuMcBSJn3IhKk5NSRAH45RarpcasDkEPM
+        9/25+3121hG6A5w7NSNFedzqgMhtHkX0Qvw+yEPXC/6KbbfbWQeuyOObkD13dZwbciHngMiJrJO7uOPS
+        oCAQwRhaj+kLRlX9BaNdJkd0W3QeAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
